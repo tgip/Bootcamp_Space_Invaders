@@ -8,7 +8,8 @@ If your working on something ... put WIP in front of the [ ] and add your name (
 TODO : 
 - [ ] Everything ...
 - [ ] Make a test routine in main() to test simplegraphics
-- [ ] Define BadGuy Object
+- [ ] WIP Define BadGuy Object - Humberto
+  - [ ] WIP Define BadGuy Interface - Humberto
 - [ ] Define Player Object
 - [ ] Define "Play Area" Object
 - [ ] Define "Position"
