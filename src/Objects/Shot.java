@@ -4,5 +4,5 @@ public class Shot {
      * Has a direction
      * Has a speed
      * */
-
+/* TODO Adriano - fix this - change to gun  */
 }
