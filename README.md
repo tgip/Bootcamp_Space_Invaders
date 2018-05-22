@@ -1,7 +1,9 @@
 # Bootcamp_Space_Invaders
 
-To create a task, preface list items with [ ]. To mark a task as complete, use [x].
-if your working on something ... put WIP in front of the [ ] and add your name (so we don't all work on the same thing ...)
+Edit this file when ...
+If you want to create a task, preface list items with [ ].
+To mark a task as complete, use [x].
+If your working on something ... put WIP in front of the [ ] and add your name (so we don't all work on the same thing ...)
 
 TODO : 
 - [ ] Everything ...
