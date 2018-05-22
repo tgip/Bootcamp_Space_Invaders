@@ -7,9 +7,9 @@ If your working on something ... put WIP in front of the [ ] and add your name (
 
 TODO : 
 - [ ] Everything ...
-- [ ] Buy Humberto beer !
 - [ ] Make a test routine in main() to test simplegraphics
 - [ ] Define BadGuy Object
 - [ ] Define Player Object
 - [ ] Define "Play Area" Object
 - [ ] Define "Position"
+- [ ] Buy Humberto beer !

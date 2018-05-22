@@ -1,3 +1,5 @@
+package Objects;
+
 public class Player {
     /**
      * Defines a Player

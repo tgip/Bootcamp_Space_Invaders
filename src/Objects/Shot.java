@@ -1,3 +1,5 @@
+package Objects;
+
 public class Shot {
     /**
      * Defines a Shot

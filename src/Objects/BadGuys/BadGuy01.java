@@ -1,3 +1,5 @@
+package Objects.BadGuys;
+
 public class BadGuy01 {
     /**
      * Defines a BadGuy
