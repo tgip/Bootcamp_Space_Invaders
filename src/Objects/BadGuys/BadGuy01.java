@@ -1,11 +1,21 @@
 package Objects.BadGuys;
 
-public class BadGuy01 {
+import static Objects.BadGuys.BadGuysTypes.BAD_GUYS_01;
+
+public class BadGuy01 extends GenericBadGuy {
+
+    BadGuysTypes type = BAD_GUYS_01;
+
     /**
      * Defines a BadGuy
      * Has Health
-     * Has a Direction
      * Has a Speed (increases with skill)
+     * can move in Direction
+     * can die
      * */
+
+    public BadGuy01 (){
+        super();
+    }
 
 }
