@@ -6,7 +6,7 @@ To mark a task as complete, use [x].
 If your working on something ... put WIP in front of the [ ] and add your name (so we don't all work on the same thing ...)
 
 TODO : 
-- [X] Everything ...
+- [ ] Everything ...
 - [ ] Make a test routine in main() to test simplegraphics
 - [ ] WIP Define BadGuy Object - Humberto
   - [ ] WIP Define BadGuy Interface - Humberto
