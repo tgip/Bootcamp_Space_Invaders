@@ -1,40 +1,73 @@
 package org.academiadecodigo.PopStarsSpaceInvaders;
 
+import org.academiadecodigo.PopStarsSpaceInvaders.BadGuys.GenericBadGuy;
+import org.academiadecodigo.simplegraphics.graphics.Movable;
 
-public class Game {
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.FontMetrics;
+import java.awt.Graphics;
+import java.awt.Toolkit;
+import java.awt.event.MouseAdapter;
+import java.awt.event.KeyEvent;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.Random;
 
-    /**
-     * The game logic
-     */
+import javax.swing.ImageIcon;
+import javax.swing.JPanel;
 
-    private int delay = 200;
+import org.academiadecodigo.PopStarsSpaceInvaders.Config;
+/**
+ * The game logic
+ */
+public class Game extends JPanel implements Movable, Config {
+
+    private Dimension d;
+    private GenericBadGuy[] badGuys;
     private Player player;
-    // TODO - needs new array  to iterate over and move the badguys
-    // private Enemy[] enemies = new Enemy[3];
-    // TODO - needs new linked list to iterate over and move the shots
-    // private Moveable shotsInAir = new Movable linkedlist
+    private LinkedList<Shot> shot;
+
+    private CollisionDetector collisionDetector;
+
 
     public void init() {
-        //create Screen
-        player = new Player();
+        player= new Player();
         MouseListener mouseListener = new MouseListener(player);
-        //new KeyboardListener(player).activate();
+
     }
 
     public void start() throws InterruptedException {
 
         while (true) {
 
-            // Pause for a while
-            Thread.sleep(delay);
+            // detectCollisions
+            collisionDetector = new CollisionDetector();
 
-            //otherObjectsMove();
-            //player.move_shots();
-            //detectCollisions();
-            //updateScores();
+            //otherObjectsMove(); // for future
+
+            //moveShots();
+            moveShot();
+            //moveEnemy();
+            moveEnemy();
         }
 
     }
 
+    public void moveEnemy(){
+        for(GenericBadGuy gb : badGuys){
+            gb.move();
+            collisionDetector.check(gb);
+        }
+    }
+
+    public void moveShot(){
+        for(Shot sh : shot){
+            sh.move(0,-1);
+            collisionDetector.check(sh);
+        }
+    }
 }
