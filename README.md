@@ -9,9 +9,9 @@ TODO :
 
 - [ ] Everything ...
 
-- [ ] Define BadGuy Object
-- [ ] WIP Mouse Handler - Humberto
-- [ ] Define Player Object - Adriano
-- [ ] Define "Play Area" Object - Barbara
+- [X] Define BadGuy Object
+- [X] Mouse Handler - Humberto
+- [X] Define Player Object - Adriano
+- [X] WIP Define "Play Area" Object - Barbara
 - [ ] Create Images - Pedro
 - [ ] Buy Humberto beer !
