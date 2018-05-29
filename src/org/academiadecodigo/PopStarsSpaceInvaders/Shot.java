@@ -8,6 +8,8 @@ public class Shot implements Moveable {
     private Rectangle rectangle;
     private int health;
     private Direction direction;
+    private int pos_x;
+
 
     public Shot(int originX, int originY) {
         rectangle = new Rectangle(originX,originY, 5, 5);
@@ -18,6 +20,8 @@ public class Shot implements Moveable {
     public void move(){
             rectangle.translate(0, -1);
     }
+
+
 
     public void setDirection(Direction direction) {
         this.direction = Direction.UP;

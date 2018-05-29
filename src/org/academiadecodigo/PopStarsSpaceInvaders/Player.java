@@ -22,7 +22,7 @@ public class Player implements Moveable {
         rectangle.fill();
     }
 
-    public void move(){
+   public void move(){
 
         if (direction == Direction.RIGHT) {
             pos_x=pos_x + 10;
@@ -36,6 +36,16 @@ public class Player implements Moveable {
 
     }
 
+
+
+
+  public void move(int x, int y){
+
+      rectangle.translate(pos_x-x,pos_y-y);
+      pos_x=x;
+      pos_y=y;
+
+  }
 
    public Shot shoot(){
         Shot shot = new  Shot(pos_x +gun_pos,pos_y);

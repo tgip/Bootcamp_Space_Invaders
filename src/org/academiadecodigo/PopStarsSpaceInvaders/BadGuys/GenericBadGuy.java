@@ -26,6 +26,7 @@ import org.academiadecodigo.PopStarsSpaceInvaders.Direction;
         public abstract void move();
 
 
+
         public boolean isDead() {
         return isDead;
         }
