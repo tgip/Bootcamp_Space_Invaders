@@ -1,16 +1,16 @@
 package org.academiadecodigo.PopStarsSpaceInvaders;
 
+public class Launcher
+{
 
+  public static void main (String[]args) throws InterruptedException
+  {
 
-public class Launcher {
+    Game game = new Game ();
 
-    public static void main(String[] args) throws InterruptedException {
+      game.init ();
+      game.start ();
 
-        Game game = new Game();
-
-        game.init();
-        game.start();
-
-    }
+  }
 
 }
