@@ -11,7 +11,6 @@ public class Player implements Moveable {
     private int pos_x;
     private int pos_y;
     private int gun_pos = 25;
-    public Shot[] shotsInAir;
     private Shot shot;
 
 
@@ -21,8 +20,6 @@ public class Player implements Moveable {
         rectangle = new Rectangle(pos_x, pos_y, 50, 50);
         rectangle.setColor(Color.RED);
         rectangle.fill();
-        shotsInAir= new Shot[100];
-        shot= new Shot(pos_x,pos_y);
     }
 
     public void move(){
@@ -37,16 +34,13 @@ public class Player implements Moveable {
             rectangle.translate(-10, 0);
         }
 
-        if(direction == Direction.SPACE){
-            shot.move();
-
-        }
     }
 
 
-   // public void shoot(){
-    //  Shot shot = new  Shot(pos_x +gun_pos,pos_y);
-    //}
+   public Shot shoot(){
+        Shot shot = new  Shot(pos_x +gun_pos,pos_y);
+        return shot;
+    }
 
  /*   public void move_shots(){
         for (Shot moveThisShit : shotsInAir){
@@ -58,5 +52,21 @@ public class Player implements Moveable {
     */
     public void setDirection(Direction direction) {
         this.direction = direction;
+    }
+
+    public void setPos_x(int pos_x){
+        this.pos_x=pos_x;
+    }
+
+    public void setPos_y(int pos_y){
+        this.pos_y=pos_y;
+    }
+
+    public int getPos_x() {
+        return pos_x;
+    }
+
+    public int getPos_y() {
+        return pos_y;
     }
 }

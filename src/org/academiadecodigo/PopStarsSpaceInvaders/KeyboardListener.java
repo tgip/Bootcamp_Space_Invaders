@@ -37,7 +37,7 @@ public class KeyboardListener implements KeyboardHandler {
 
         switch (e.getKey()) {
             case KeyboardEvent.KEY_SPACE:
-                player.setDirection(Direction.SPACE);
+                player.move();
                 break;
             case KeyboardEvent.KEY_LEFT:
                 player.setDirection(Direction.LEFT);
