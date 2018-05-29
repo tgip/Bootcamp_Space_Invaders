@@ -19,9 +19,9 @@ public class BadGuy01 extends GenericBadGuy {
    // private Shot shot;
 
 
-    public BadGuy01() {
-        pos_x = 50;
-        pos_y = 50;
+    public BadGuy01(int pos_x, int pos_y) {
+        this.pos_x = pos_x;
+        this.pos_y = pos_y;
         rectangle = new Rectangle(pos_x, pos_y, 50, 50);
         rectangle.setColor(Color.BLUE);
         rectangle.fill();

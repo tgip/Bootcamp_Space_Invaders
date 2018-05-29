@@ -1,42 +1,38 @@
 package org.academiadecodigo.PopStarsSpaceInvaders;
 
-import org.academiadecodigo.PopStarsSpaceInvaders.BadGuys.BadGuy01;
-import org.academiadecodigo.PopStarsSpaceInvaders.BadGuys.BadGuysFactory;
 
-/**
- * The game logic
- */
 public class Game {
+
+
+    /**
+     * The game logic
+     */
 
     private int delay = 200;
     private Player player;
-    private BadGuy01 badGuy;
-    private int a=0;
-
+    // TODO - needs new array  to iterate over and move the badguys
+    // private Enemy[] enemies = new Enemy[3];
+    // TODO - needs new linked list to iterate over and move the shots
+    // private Moveable shotsInAir = new Movable linkedlist
 
     public void init() {
-        player= new Player();
-        new KeyboardListener(player).activate();
-        badGuy= new BadGuy01();
-
-
+        //create Screen
+        player = new Player();
+        MouseListener mouseListener = new MouseListener(player);
+        //new KeyboardListener(player).activate();
     }
 
     public void start() throws InterruptedException {
 
         while (true) {
 
-            if(a>10){
-            badGuy.move();}
-
-            a++;
-
             // Pause for a while
             Thread.sleep(delay);
 
             //otherObjectsMove();
-            player.move();
             //player.move_shots();
+            //detectCollisions();
+            //updateScores();
         }
 
     }
