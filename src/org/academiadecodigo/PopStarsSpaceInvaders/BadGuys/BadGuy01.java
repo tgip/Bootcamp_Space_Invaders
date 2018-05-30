@@ -1,10 +1,10 @@
 package org.academiadecodigo.PopStarsSpaceInvaders.BadGuys;
 
-
 import org.academiadecodigo.PopStarsSpaceInvaders.Direction;
 import org.academiadecodigo.PopStarsSpaceInvaders.Shot;
 import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
+
 
 public class BadGuy01 extends GenericBadGuy {
 
@@ -15,8 +15,8 @@ public class BadGuy01 extends GenericBadGuy {
     private int pos_x;
     private int pos_y;
     private boolean isDead;
-   // private int gun_pos = 25;
-   // private Shot shot;
+    // private int gun_pos = 25;
+    // private Shot shot;
 
 
     public BadGuy01(int pos_x, int pos_y) {
@@ -32,16 +32,16 @@ public class BadGuy01 extends GenericBadGuy {
 
     @Override
     public void move(){
-            rectangle.translate(0, 10);
-        }
+        rectangle.translate(0, 10);
+    }
 
 
     //public Shot shoot(){
     //    Shot shot = new  Shot(pos_x +gun_pos,pos_y);
-   //     return shot;
-   // }
+    //     return shot;
+    // }
 
-   @Override
+    @Override
 
     public void setDirection(Direction direction) {
         this.direction = direction;
@@ -53,13 +53,13 @@ public class BadGuy01 extends GenericBadGuy {
     }
 }
 
-    /**
-     * Defines a BadGuy
-     * Has Health
-     * Has a Speed (increases with skill)
-     * can move in Direction
-     * can die
-     * */
+/**
+ * Defines a BadGuy
+ * Has Health
+ * Has a Speed (increases with skill)
+ * can move in Direction
+ * can die
+ * */
 
 
 
