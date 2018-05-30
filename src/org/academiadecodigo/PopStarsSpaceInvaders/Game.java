@@ -1,7 +1,13 @@
 package org.academiadecodigo.PopStarsSpaceInvaders;
 
+<<<<<<< HEAD
 import org.academiadecodigo.PopStarsSpaceInvaders.BadGuys.GenericBadGuy;
 import org.academiadecodigo.simplegraphics.graphics.Movable;
+=======
+
+public class Game
+{
+>>>>>>> 158b60c... Added zip of working version
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -17,6 +23,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Random;
 
+<<<<<<< HEAD
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
@@ -39,6 +46,15 @@ public class Game extends JPanel implements Movable, Config {
         MouseListener mouseListener = new MouseListener(player);
 
     }
+=======
+  public void init ()
+  {
+    ourScreen = new SimpleGfxGrid (100, 200);
+    player = new Player ();
+    MouseListener mouseListener = new MouseListener (player);
+    //new KeyboardListener(player).activate();
+  }
+>>>>>>> 158b60c... Added zip of working version
 
   public void start () throws InterruptedException
   {
