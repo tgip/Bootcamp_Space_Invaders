@@ -3,8 +3,7 @@ package org.academiadecodigo.PopStarsSpaceInvaders;
 import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 
-public class Player implements Moveable
-{
+public class Player extends Check implements Moveable {
 
   private Rectangle rectangle;
   private int health;
@@ -39,16 +38,14 @@ public class Player implements Moveable
 
   }
 
-  public Shot shoot ()
-  {
-    Shot shot = new Shot (rectangle.getX () + gun_pos, rectangle.getY ());
+    public Shot shoot() {
+        Sound sound= new Sound("resources/LaserShot.wav");
+        sound.play(true);
+        Shot shot = new Shot(rectangle.getX() + gun_pos, rectangle.getY());
+        return shot;
+    }
 
-    return shot;
-  }
-
-  public void setDirection (Direction direction)
-  {
-    this.direction = direction;
-  }
-
+    public void setDirection(Direction direction) {
+        this.direction = direction;
+    }
 }
