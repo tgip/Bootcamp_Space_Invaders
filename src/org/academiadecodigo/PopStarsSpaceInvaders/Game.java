@@ -1,5 +1,6 @@
 package org.academiadecodigo.PopStarsSpaceInvaders;
 
+
 public class Game
 {
 
@@ -16,7 +17,7 @@ public class Game
 
   public void init ()
   {
-    //create Screen
+    ourScreen = new SimpleGfxGrid (100, 200);
     player = new Player ();
     MouseListener mouseListener = new MouseListener (player);
     //new KeyboardListener(player).activate();
