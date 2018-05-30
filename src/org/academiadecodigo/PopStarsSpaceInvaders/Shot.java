@@ -12,6 +12,12 @@ public class Shot extends Check implements Moveable {
     private double posX;
     private double posY;
 
+  public Shot (double originX, double originY)
+  {
+    rectangle = new Rectangle (originX, originY, 5, 5);
+    rectangle.setColor (Color.BLACK);
+    rectangle.fill ();
+  }
 
     public Shot(double originX, double originY) {
         posX = originX;

@@ -40,9 +40,11 @@ public class Game extends JPanel implements Movable, Config {
 
     }
 
-    public void start() throws InterruptedException {
+  public void start () throws InterruptedException
+  {
 
-        while (true) {
+    while (true)
+      {
 
             // detectCollisions
             collisionDetector = new CollisionDetector();
@@ -55,7 +57,7 @@ public class Game extends JPanel implements Movable, Config {
             moveEnemy();
         }
 
-    }
+  }
 
     public void moveEnemy(){
         for(GenericBadGuy gb : badGuys){

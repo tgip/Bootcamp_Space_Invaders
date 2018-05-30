@@ -25,9 +25,7 @@ abstract public class GenericBadGuy {
 
     public abstract void move();
 
-
-
-    public boolean isDead() {
+        public boolean isDead() {
         return isDead;
     }
 
