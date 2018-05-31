@@ -2,22 +2,18 @@ package org.academiadecodigo.PopStarsSpaceInvaders.gameobjects;
 
 import org.academiadecodigo.PopStarsSpaceInvaders.*;
 import org.academiadecodigo.PopStarsSpaceInvaders.grid.Grid;
-import org.academiadecodigo.PopStarsSpaceInvaders.grid.GridColor;
 import org.academiadecodigo.PopStarsSpaceInvaders.grid.GridDirection;
 import org.academiadecodigo.PopStarsSpaceInvaders.grid.GridPosition;
-import org.academiadecodigo.simplegraphics.pictures.Picture;
 
-import java.awt.*;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Player extends Check implements Moveable {
+public class Player extends GameObject implements Drawable {
 
     private GridPosition pos;
     private Grid grid;
-    private boolean crashed = false;
-    private int directionChangeLevel = 8;
-    private Picture playerIcon;
+    private boolean dead = false;
+  //  private int directionChangeLevel = 8;
     private int health;
     private Direction direction;
     private double posX;
@@ -31,12 +27,13 @@ public class Player extends Check implements Moveable {
     protected GridDirection currentDirection;
 
     public Player() {
+        super(200, 200, "resources/images/Humberto.png");
 
-        posX=(Config.BOARD_HEIGHT-Config.playerIcon_WIDTH)/2;
-        posY=(Config.BOARD_WIDTH-Config.playerIcon_WIDTH)/2;
+        posX=200;
+        posY=200;
 
-        playerIcon = new Picture(posX,posY,"resources/images/Humberto.png");
-        playerIcon.draw();
+        picture.grow(-50,-50);
+        picture.draw();
 
         currentDirection = GridDirection.values()[(int) (Math.random() * GridDirection.values().length)];
     }
@@ -53,7 +50,7 @@ public class Player extends Check implements Moveable {
         this.collisionDetector = collisionDetector;
     }
 
-    public void setDirectionChangeLevel(int directionChangeLevel) {
+ /* public void setDirectionChangeLevel(int directionChangeLevel) {
         this.directionChangeLevel = directionChangeLevel;
     }
 
@@ -61,7 +58,7 @@ public class Player extends Check implements Moveable {
      * Sets the car into a crashed state
      */
 
-    public void move() {
+  /*  public void move() {
         if (direction == Direction.RIGHT) {
             playerIcon.translate(10, 0);
         }
@@ -76,10 +73,10 @@ public class Player extends Check implements Moveable {
         posX=x;
         posY=y;
 
-    }
+    }*/
 
     public void shoot()  {
-        Shot shot = new Shot(playerIcon.getX() + gun_pos, playerIcon.getY());
+        Shot shot = new Shot(picture.getX() + gun_pos, picture.getY());
        list.add(shot);
 
     }

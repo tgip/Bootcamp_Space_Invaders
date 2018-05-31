@@ -17,7 +17,6 @@ public class MouseListener extends Check implements MouseHandler {
   };
 
   private Player player;
-  private int x_pos;
 
   public MouseListener (Player player
   ) {
@@ -35,12 +34,9 @@ public class MouseListener extends Check implements MouseHandler {
     player.shoot ();
   }
 
-    @Override public void mouseMoved (MouseEvent e) {
-        x_pos = (int) e.getX();
-        if (x_pos > Config.BOARD_WIDTH-Config.playerIcon_WIDTH+10){
-            x_pos = Config.BOARD_WIDTH-Config.playerIcon_WIDTH+10;}
-        else if (x_pos < 10) {x_pos = 10;}
-        System.out.println(x_pos);
-        player.move (x_pos, Config.BOARD_HEIGHT-Config.playerIcon_WIDTH);
-    }
+  @Override public void mouseMoved (MouseEvent e
+  ) {
+    player.move (e.getX (), 50);
+    //player.move(e.getX(), e.getY());
+  }
 }

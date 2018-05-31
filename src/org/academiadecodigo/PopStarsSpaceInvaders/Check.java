@@ -1,4 +1,4 @@
-package org.academiadecodigo.PopStarsSpaceInvaders;
+/*package org.academiadecodigo.PopStarsSpaceInvaders;
 
 import java.awt.Image;
 
@@ -79,3 +79,4 @@ public abstract class Check {
     return this.dying;
   }
 }
+*/

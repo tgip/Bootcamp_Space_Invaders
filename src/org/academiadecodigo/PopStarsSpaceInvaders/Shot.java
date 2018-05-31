@@ -1,9 +1,12 @@
 package org.academiadecodigo.PopStarsSpaceInvaders;
 
+import org.academiadecodigo.PopStarsSpaceInvaders.gameobjects.Drawable;
+import org.academiadecodigo.PopStarsSpaceInvaders.gameobjects.GameObject;
 import org.academiadecodigo.simplegraphics.graphics.Color;
+import org.academiadecodigo.simplegraphics.graphics.Movable;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 
-public class Shot extends Check {
+public class Shot extends GameObject implements Drawable {
 
   private Rectangle rectangle;
   private int health;
@@ -12,18 +15,28 @@ public class Shot extends Check {
   private double posY;
   private Sound sound = new Sound ("/resources/sounds/LaserShot.wav");
 
-  public Shot (double originX, double originY) {
+  public Shot (double originX, double originY){
+  //)
+  /*super(posX, posY, "resources/images/Humberto.png");
+
+  //posX=200;
+  //posY=200;
+
+   picture.grow(-50,-50);
+    picture.draw();*/
+
     posY = originY;
     posX = originX;
     rectangle = new Rectangle (originX, originY, 5, 10);
-    rectangle.setColor (Color.YELLOW);
-    rectangle.draw ();
-    rectangle.fill ();
-    sound.play (true);
+    rectangle.setColor (Color.YELLOW
+    );
+    rectangle.draw (
+    );
+    rectangle.fill (
+    );*/
+    sound.play (true); }
 
-  }
-
-  public void move () {
+    public void move () {
     if (posY > 0) {
       System.out.println ("PosX " + posX + "PosY " + posY);
 
@@ -32,12 +45,13 @@ public class Shot extends Check {
     }
   }
 
-  public double getPosX () {
-
+  public double getPosX (
+  ) {
     return posX;
   }
 
-  public double getPosY () {
+  public double getPosY (
+  ) {
     return posY;
   }
 
