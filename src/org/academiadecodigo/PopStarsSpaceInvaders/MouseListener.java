@@ -9,7 +9,7 @@ import org.academiadecodigo.simplegraphics.mouse.MouseHandler;
 import java.util.LinkedList;
 import java.util.List;
 
-public class MouseListener extends Check implements MouseHandler {
+public class MouseListener implements MouseHandler {
 
   private static final MouseEventType[] ourMouseEvents = {
     MouseEventType.MOUSE_CLICKED,
@@ -36,7 +36,7 @@ public class MouseListener extends Check implements MouseHandler {
 
   @Override public void mouseMoved (MouseEvent e
   ) {
-    player.move (e.getX (), 50);
+    player.move (e.getX(), 50);
     //player.move(e.getX(), e.getY());
   }
 }

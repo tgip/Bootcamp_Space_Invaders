@@ -50,30 +50,12 @@ public class Player extends GameObject implements Drawable {
         this.collisionDetector = collisionDetector;
     }
 
- /* public void setDirectionChangeLevel(int directionChangeLevel) {
-        this.directionChangeLevel = directionChangeLevel;
-    }
-
-    /**
-     * Sets the car into a crashed state
-     */
-
-  /*  public void move() {
-        if (direction == Direction.RIGHT) {
-            playerIcon.translate(10, 0);
-        }
-        if (direction == Direction.LEFT) {
-            playerIcon.translate(-10, 0);
-        }
-
-    }
-
     public void move(double x, double y) {
-        playerIcon.translate(x - posX, y - posY);
+        picture.translate(x - posX, y - posY);
         posX=x;
         posY=y;
 
-    }*/
+    }
 
     public void shoot()  {
         Shot shot = new Shot(picture.getX() + gun_pos, picture.getY());
@@ -85,4 +67,7 @@ public class Player extends GameObject implements Drawable {
         this.direction = direction;
     }
 
+    @Override
+    public void hit() {
+    }
 }

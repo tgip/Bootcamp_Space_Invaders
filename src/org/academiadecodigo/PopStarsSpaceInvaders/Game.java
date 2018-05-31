@@ -23,7 +23,7 @@ public class Game {
   private Dimension d;
   private GenericBadGuy[] badGuys = new GenericBadGuy[20];
   private Player player;
-  private LinkedList<Shot> shot = new Shot[1];
+  private LinkedList<Shot> shot;
   private SimpleGfxGrid simpleGfxGrid;
   private int x = 10;
 

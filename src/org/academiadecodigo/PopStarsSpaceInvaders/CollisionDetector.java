@@ -12,17 +12,17 @@ public class CollisionDetector {
 
   private Player player;
   private GenericBadGuy[] badGuys;
-  private LinkedList < Shot > shot;
+  private LinkedList < Shot > arrayofShots;
   private List<GameObject> gameObject;
 
   public CollisionDetector () {
     this.badGuys = badGuys;
     this.player = player;
-    this.shot = shot;
+    this.arrayofShots = shot;
   }
 
   public CollisionDetector(GameObject gameObject) {
-    shot = new Vector<>();
+    arrayofShots = new Vector<GameObject>();
     this.gameObject = gameObject;
   }
 
