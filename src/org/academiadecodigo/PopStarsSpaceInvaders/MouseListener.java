@@ -1,40 +1,41 @@
 package org.academiadecodigo.PopStarsSpaceInvaders;
 
+import org.academiadecodigo.PopStarsSpaceInvaders.gameobjects.Player;
 import org.academiadecodigo.simplegraphics.mouse.Mouse;
 import org.academiadecodigo.simplegraphics.mouse.MouseEvent;
 import org.academiadecodigo.simplegraphics.mouse.MouseEventType;
 import org.academiadecodigo.simplegraphics.mouse.MouseHandler;
 
-public class MouseListener implements MouseHandler{
+import java.util.LinkedList;
+import java.util.List;
 
-  private static final MouseEventType[] ourMouseEvents = {
-    MouseEventType.MOUSE_MOVED,
-    MouseEventType.MOUSE_CLICKED
-  };
+public class MouseListener extends Check implements MouseHandler {
 
-  private Player player;
+    private static final MouseEventType[] ourMouseEvents = {
+            MouseEventType.MOUSE_CLICKED,
+            MouseEventType.MOUSE_MOVED
+    };
 
-  public MouseListener (Player player)
-  {
-    this.player = player;
+    private Player player;
 
-    Mouse event = new Mouse (this);
+    public MouseListener(Player player) {
+        this.player = player;
 
-  for (MouseEventType eventType:ourMouseEvents)
-      {
-	event.addEventListener (eventType);
-      }
-  }
+        Mouse event = new Mouse(this);
 
-  @Override public void mouseClicked (MouseEvent e)
-  {
-    System.out.println ("Mouse Clicked ...");
-    player.shoot ();
-  }
+        for (MouseEventType eventType : ourMouseEvents) {
+            event.addEventListener(eventType);
+        }
+    }
 
-  @Override public void mouseMoved (MouseEvent e)
-  {
-    System.out.println ("X = " + e.getX () + "- Y = " + e.getY ());
-    player.move (e.getX (), e.getY ());
-  }
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        player.shoot();
+    }
+
+    @Override
+    public void mouseMoved(MouseEvent e) {
+        player.move(e.getX(), 50);
+        //player.move(e.getX(), e.getY());
+    }
 }

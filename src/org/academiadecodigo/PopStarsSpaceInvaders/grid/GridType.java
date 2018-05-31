@@ -1,11 +1,5 @@
-package org.academiadecodigo.bootcamp.grid;
+package org.academiadecodigo.PopStarsSpaceInvaders.grid;
 
-/**
- * The available types of grids
- */
 public enum GridType {
-
-    LANTERNA,
     SIMPLE_GFX
-
 }

@@ -4,9 +4,14 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
+import java.awt.Image;
+
 import org.academiadecodigo.PopStarsSpaceInvaders.Game;
 
+
 public class GameOverScreen extends Screen{
+/*
+
 
     public void paintComponent(Graphics g) {
         Graphics2D g2 = (Graphics2D) g;
@@ -31,5 +36,5 @@ public class GameOverScreen extends Screen{
 
     public void actionPerformed(ActionEvent ae) {
         repaint();
-    }
+    }*/
 }

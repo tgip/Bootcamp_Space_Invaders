@@ -1,8 +1,5 @@
-package org.academiadecodigo.bootcamp.grid;
+package org.academiadecodigo.PopStarsSpaceInvaders.grid;
 
-/**
- * The available grid colors
- */
 public enum GridColor {
 
     RED,
@@ -10,5 +7,4 @@ public enum GridColor {
     BLUE,
     MAGENTA,
     NOCOLOR
-
 }

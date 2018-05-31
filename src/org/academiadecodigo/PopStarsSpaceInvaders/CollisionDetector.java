@@ -1,8 +1,7 @@
 package org.academiadecodigo.PopStarsSpaceInvaders;
 
-        import org.academiadecodigo.PopStarsSpaceInvaders.Shot;
-        import org.academiadecodigo.PopStarsSpaceInvaders.Player;
-        import org.academiadecodigo.PopStarsSpaceInvaders.BadGuys.GenericBadGuy;
+        import org.academiadecodigo.PopStarsSpaceInvaders.gameobjects.Player;
+        import org.academiadecodigo.PopStarsSpaceInvaders.gameobjects.badguys.GenericBadGuy;
 
         import java.util.LinkedList;
 
@@ -19,20 +18,23 @@ public class CollisionDetector {
     }
 
     public void check(GenericBadGuy badGuys){
-            if (badGuys == badGuys){
+         /*   if (badGuys == badGuys){
                 continue;
             }
-            if(badGuys.getX().equals(shot.s)){
-                badGuys.isDying();
-                shot.isVisible(false);
+            for(i = 0; i < badGuys.length; i++){
+                if(badGuys.getPos().equals(shot.getPos())){
+                    badGuys.isDying();
+                    shot.isVisible(false);
 
+                }
             }
+
         }
 
     public void fatality(Player player){
         if(player.getPos().equals(badGuys.getPos())) {
             player.isDying();
-        }
+        }*/
     }
 
 }

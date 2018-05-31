@@ -1,79 +1,67 @@
 package org.academiadecodigo.PopStarsSpaceInvaders;
 
-<<<<<<< HEAD
-import org.academiadecodigo.PopStarsSpaceInvaders.BadGuys.GenericBadGuy;
+import org.academiadecodigo.PopStarsSpaceInvaders.gameobjects.badguys.BadGuy01;
+import org.academiadecodigo.PopStarsSpaceInvaders.gameobjects.badguys.GenericBadGuy;
+import org.academiadecodigo.PopStarsSpaceInvaders.gameobjects.Player;
+import org.academiadecodigo.PopStarsSpaceInvaders.grid.Grid;
+import org.academiadecodigo.PopStarsSpaceInvaders.simplegfx.SimpleGfxGrid;
 import org.academiadecodigo.simplegraphics.graphics.Movable;
-=======
 
-public class Game
-{
->>>>>>> 158b60c... Added zip of working version
-
-import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.FontMetrics;
-import java.awt.Graphics;
-import java.awt.Toolkit;
-import java.awt.event.MouseAdapter;
-import java.awt.event.KeyEvent;
 
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.LinkedList;
-import java.util.Random;
 
-<<<<<<< HEAD
-import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
-import org.academiadecodigo.PopStarsSpaceInvaders.Config;
 /**
  * The game logic
  */
-public class Game extends JPanel implements Movable, Config {
+public class Game  {
 
     private Dimension d;
-    private GenericBadGuy[] badGuys;
+    private GenericBadGuy[]  badGuys=new GenericBadGuy[20];
     private Player player;
-    private LinkedList<Shot> shot;
+    private Shot[] shot = new Shot[1];
+    private SimpleGfxGrid simpleGfxGrid;
+    private int x=10;
+
+
 
     private CollisionDetector collisionDetector;
 
 
     public void init() {
-        player= new Player();
+        simpleGfxGrid = new SimpleGfxGrid(100, 200);
+        simpleGfxGrid.init();
+        player = new Player();
         MouseListener mouseListener = new MouseListener(player);
 
-    }
-=======
-  public void init ()
-  {
-    ourScreen = new SimpleGfxGrid (100, 200);
-    player = new Player ();
-    MouseListener mouseListener = new MouseListener (player);
-    //new KeyboardListener(player).activate();
-  }
->>>>>>> 158b60c... Added zip of working version
+        ;
 
-  public void start () throws InterruptedException
-  {
-
-    while (true)
-      {
-
-            // detectCollisions
-            collisionDetector = new CollisionDetector();
-
-            //otherObjectsMove(); // for future
-
-            //moveShots();
-            moveShot();
-            //moveEnemy();
-            moveEnemy();
+        for(int i=0; i<20;i++){
+            x=x+50;
+            badGuys[i] = new BadGuy01(x,10);
         }
 
-  }
+    }
+
+    public void start() throws InterruptedException {
+
+       while (true) {
+
+           // detectCollisions
+
+           collisionDetector = new CollisionDetector();
+           Thread.sleep(100);
+           moveEnemy();
+           for (Shot i : player.list) {
+               i.move();
+           }
+
+
+       }
+
+    }
 
     public void moveEnemy(){
         for(GenericBadGuy gb : badGuys){
@@ -82,10 +70,10 @@ public class Game extends JPanel implements Movable, Config {
         }
     }
 
-    public void moveShot(){
+   /* public void moveShot(){
         for(Shot sh : shot){
             sh.move(0,-1);
-            collisionDetector.check(sh);
+            //collisionDetector.check(sh);
         }
-    }
+    } */
 }

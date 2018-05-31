@@ -9,11 +9,13 @@ import java.awt.event.KeyEvent;
 import java.awt.font.FontRenderContext;
 import java.awt.geom.Rectangle2D;
 import java.io.ObjectInputFilter;
+import java.awt.Image;
 
 import org.academiadecodigo.PopStarsSpaceInvaders.Game;
+import org.academiadecodigo.PopStarsSpaceInvaders.Config;
 
-public class StartScreen extends Screen {
-
+public class StartScreen extends Screen implements Config {
+/*
     private int adjustY = -20;
     private int adjustYLineSpacing = 30;
 
@@ -41,10 +43,12 @@ public class StartScreen extends Screen {
     }
 
     public void paintComponent(Graphics g) {
+        super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
 
         // Draw the Image
-        g2.drawImage(BufferedImageResource.StartScreen, null, 0, 0);
+       g2.drawImage(BufferedImageResources.StartScreen, null, 0, 0);
+        //g2.drawImage("org.academiadecodigo.PopStarsSpaceInvaders.resources/images/Humberto.png".StartScreen, null,0,0);
 
         // Draw the text
         g2.setColor(Color.WHITE);
@@ -109,12 +113,12 @@ public class StartScreen extends Screen {
         switch (cursorPosition) {
             case 1:
                 // switch to gamescreen
-                System.out.println("Trying to switch to gamescreen");
+                System.out.println("Trying to switch to GameScreen");
                 Game.setScreen(new GameScreen());
                 break;
             case 2:
                 // switch to optionsscreen
-                System.out.println("Trying to switch to optionsscreen");
+                System.out.println("Trying to switch to OptionsScreen");
                 Game.setScreen(new OptionsScreen());
                 break;
             case 3:
@@ -138,7 +142,9 @@ public class StartScreen extends Screen {
          * Mp3Player player = new Mp3Player();
          * player.setFilename("lazer");player.play();
          */
+
+
     }
 
 
-}
+

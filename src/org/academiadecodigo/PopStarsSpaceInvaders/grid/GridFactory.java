@@ -1,13 +1,9 @@
-package org.academiadecodigo.bootcamp.grid;
+package org.academiadecodigo.PopStarsSpaceInvaders.grid;
 
-import org.academiadecodigo.bootcamp.gfx.lanterna.LanternaGrid;
-import org.academiadecodigo.bootcamp.gfx.simplegfx.SimpleGfxGrid;
 
-/**
- * A factory of different types of grids
- */
+import org.academiadecodigo.PopStarsSpaceInvaders.simplegfx.SimpleGfxGrid;
+
 public class GridFactory {
-
     /**
      * Creates a new grid
      *
@@ -20,11 +16,10 @@ public class GridFactory {
 
         switch (gridType) {
             case SIMPLE_GFX:
-                return new SimpleGfxGrid(cols, rows);
+                return (Grid) new SimpleGfxGrid(cols, rows);
             default:
-                return new LanternaGrid(cols, rows);
+                throw new UnsupportedOperationException(); // return new LanternaGrid(cols, rows);
         }
 
     }
-
 }

@@ -10,14 +10,14 @@ import java.awt.image.BufferedImage;
 import java.util.LinkedList;
 import java.util.List;
 
-import org.academiadecodigo.PopStarsSpaceInvaders.BadGuys.GenericBadGuy;
-import org.academiadecodigo.PopStarsSpaceInvaders.Player;
+
+import org.academiadecodigo.PopStarsSpaceInvaders.gameobjects.Player;
 import org.academiadecodigo.PopStarsSpaceInvaders.Shot;
 import org.academiadecodigo.PopStarsSpaceInvaders.Game;
 import org.academiadecodigo.PopStarsSpaceInvaders.Config;
 
 public class GameScreen extends Screen implements Config {
-
+/*
     private static final long serialVersionUID = 1L;
     public int GameClock;
     public int Level;
@@ -26,6 +26,7 @@ public class GameScreen extends Screen implements Config {
     // GameObjects:
     public Player player;
     public List<Shot> playerBullets;
+    public List<Shot> badGuysShot;
     public GenericBadGuy badGuys;
     public int life;
 
@@ -39,7 +40,7 @@ public class GameScreen extends Screen implements Config {
     /*
      * Constructor
      */
-    public GameScreen() {
+   /* public GameScreen() {
         this.GameClock = 0;
         // Initialize the GameState
         this.gameState = GameState.RUNNING;
@@ -56,12 +57,12 @@ public class GameScreen extends Screen implements Config {
         // Player's life
         life = Config.PLAYER_START_HEALTH;
 
-    }
+    } */
 
     /*
      * PaintComponent
      */
-    public void paintComponent(Graphics g) {
+  /*  public void paintComponent(Graphics g) {
         Graphics2D g2 = (Graphics2D) g;
 
         if (this.gameState == GameState.RUNNING) { // if running
@@ -71,9 +72,9 @@ public class GameScreen extends Screen implements Config {
                     Game.frame.getHeight());
 
             /*
-             * Draw the gameobjects
+             * Draw the GameObjects
              */
-            player.draw(g2);
+       /*     player.draw(g2);
             for (Shot sh : playerBullets) {
                 if (!sh.equals(null))
                     sh.draw(g2);
@@ -159,7 +160,7 @@ public class GameScreen extends Screen implements Config {
      */
 
     // User's KeyInput: Moving the Player
-    @Override
+ /*   @Override
     public void keyPressed(KeyEvent e) {
         doKeyPressedEventUpdates(e);
     }
@@ -206,14 +207,14 @@ public class GameScreen extends Screen implements Config {
     /*
      * Pause popup
      */
-    public void pauseGame() {
+ /*   public void pauseGame() {
         this.gameState = GameState.PAUSE;
     }
 
     /*
      * Resume Game
      */
-    public void resumeGame() {
+ /*   public void resumeGame() {
         this.gameState = GameState.RUNNING;
     }
 
@@ -222,7 +223,7 @@ public class GameScreen extends Screen implements Config {
      */
 
     // Constant Timer Updates
-    @Override
+/*    @Override
     public void actionPerformed(ActionEvent e) {
         if (this.gameState == GameState.RUNNING) {
             doGameLogic();
@@ -248,8 +249,8 @@ public class GameScreen extends Screen implements Config {
         // Iterator<PlayerBullet> pbIterate= playerBullets.iterator();
 
         @SuppressWarnings("unused")
-        List<Alien> removeAliens = new LinkedList<Alien>();
-        List<PlayerBullet> removeBullets = new LinkedList<PlayerBullet>();
+
+        List<Shot> removeBullets = new LinkedList<Shot>();
 
         BulletCollisionsHandler handler = new BulletCollisionsHandler(this);
         handler.update();
@@ -257,7 +258,7 @@ public class GameScreen extends Screen implements Config {
         // Update all GameObject Positions
         player.moveUpdate();
 
-        for (PlayerBullet pb : playerBullets) {
+        for (Shot pb : shots) {
             if (!pb.equals(null)) {
                 pb.moveUpdate();
                 if (!pb.exists()) {
@@ -279,7 +280,6 @@ public class GameScreen extends Screen implements Config {
                 u.moveUpdate();
         }
 
-        ASAI.update();
 
         // Check if the game is over (life is 0)
         if (this.life <= 0) {
@@ -290,27 +290,24 @@ public class GameScreen extends Screen implements Config {
     /*
      * Remove objects methods
      */
-    private void gameOver() {
+ /*   private void gameOver() {
         Game.setScreen(Game.gameOverScreen);
     }
 
-    public void remove(PlayerBullet object) {
+
+    public void remove(BadGuysShot object) {
+        badGuysShot.remove(object);
+    }
+
+    public void remove(GenericBadGuy object) {
+        badGuys.remove(object);
+    }
+
+    public void remove(Shot object) {
         playerBullets.remove(object);
     }
 
-    public void remove(AlienBullet object) {
-        alienBullets.remove(object);
-    }
-
-    public void remove(Alien object) {
-        aliens.remove(object);
-    }
-
-    public void remove(Bullet object) {
-        playerBullets.remove(object);
-    }
-
-    public void remove(GameObject object) {
+    public void remove(Object object) {
         playerBullets.remove(object);
     }
 
@@ -322,4 +319,5 @@ public class GameScreen extends Screen implements Config {
         score += addition;
 
     }
+    **/
 }

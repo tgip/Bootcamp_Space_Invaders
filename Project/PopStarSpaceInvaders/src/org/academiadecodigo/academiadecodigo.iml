@@ -8,6 +8,5 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="lib" level="project" />
-    <orderEntry type="module" module-name="Bootcamp_Space_Invaders" />
   </component>
 </module>

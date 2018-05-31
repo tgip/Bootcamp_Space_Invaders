@@ -1,9 +1,7 @@
-package org.academiadecodigo.bootcamp.grid;
+package org.academiadecodigo.PopStarsSpaceInvaders.grid;
 
-/**
- * The directions in which positions may move
- */
 public enum GridDirection {
+
     UP,
     DOWN,
     LEFT,
@@ -45,5 +43,4 @@ public enum GridDirection {
 
         return opposite;
     }
-
 }

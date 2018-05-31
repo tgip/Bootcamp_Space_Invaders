@@ -2,7 +2,7 @@ package org.academiadecodigo.PopStarsSpaceInvaders;
 
 import java.awt.Image;
 
-public class Check {
+public abstract class Check {
 
     private boolean visible;
     private Image image;
