@@ -12,13 +12,11 @@ public class CollisionDetector {
   private GenericBadGuy[] badGuys;
   private LinkedList < Shot > shot;
 
-  public CollisionDetector (
-  ) {
+  public CollisionDetector () {
     this.badGuys = badGuys;
     this.player = player;
     this.shot = shot;
-  } public void check (GenericBadGuy badGuys
-  ) {
+  } public void check (GenericBadGuy badGuys) {
     /*
      * if (badGuys == badGuys){
      * continue;
