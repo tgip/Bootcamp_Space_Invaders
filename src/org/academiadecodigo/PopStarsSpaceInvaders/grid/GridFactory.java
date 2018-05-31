@@ -1,6 +1,5 @@
 package org.academiadecodigo.PopStarsSpaceInvaders.grid;
 
-
 import org.academiadecodigo.PopStarsSpaceInvaders.simplegfx.SimpleGfxGrid;
 
 public class GridFactory {

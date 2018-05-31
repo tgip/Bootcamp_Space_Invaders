@@ -4,68 +4,78 @@ import java.awt.Image;
 
 public abstract class Check {
 
-    private boolean visible;
-    private Image image;
-    protected int x;
-    protected int y;
-    protected boolean dying;
-    protected int dx;
+  private boolean visible;
+  private Image image;
+  protected int x;
+  protected int y;
+  protected boolean dying;
+  protected int dx;
 
-    public Check(){
-        visible = true;
-    }
+  public Check (
+  ) {
+    visible = true;
+  } public void die (
+  ) {
+    visible = false;
+  }
 
-    public void die(){
-        visible = false;
-    }
+  public boolean isVisible (
+  ) {
 
-    public boolean isVisible() {
+    return visible;
+  }
 
-        return visible;
-    }
+  protected void setVisible (boolean visible
+  ) {
 
-    protected void setVisible(boolean visible) {
+    this.visible = visible;
+  }
 
-        this.visible = visible;
-    }
+  public void setImage (Image image
+  ) {
 
-    public void setImage(Image image) {
+    this.image = image;
+  }
 
-        this.image = image;
-    }
+  public Image getImage (
+  ) {
 
-    public Image getImage() {
+    return image;
+  }
 
-        return image;
-    }
+  public void setX (int x
+  ) {
 
-    public void setX(int x) {
+    this.x = x;
+  }
 
-        this.x = x;
-    }
+  public void setY (int y
+  ) {
 
-    public void setY(int y) {
+    this.y = y;
+  }
 
-        this.y = y;
-    }
+  public int getY (
+  ) {
 
-    public int getY() {
+    return y;
+  }
 
-        return y;
-    }
+  public int getX (
+  ) {
 
-    public int getX() {
+    return x;
+  }
 
-        return x;
-    }
+  public void setDying (boolean dying
+  ) {
 
-    public void setDying(boolean dying) {
+    this.dying = dying;
+  }
 
-        this.dying = dying;
-    }
+  public boolean isDying (
+  ) {
 
-    public boolean isDying() {
-
-        return this.dying;
-    }
+    return this.dying;
+  }
 }

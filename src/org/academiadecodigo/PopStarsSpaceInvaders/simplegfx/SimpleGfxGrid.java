@@ -17,11 +17,9 @@ public class SimpleGfxGrid implements Grid {
     private int rows;
     private Picture picture;
 
-
     public SimpleGfxGrid(int cols, int rows){
         this.cols = cols;
         this.rows = rows;
-
 
         //throw new UnsupportedOperationException();
     }
@@ -137,4 +135,3 @@ public class SimpleGfxGrid implements Grid {
         return (column * getCellSize() + PADDING);
     }
 }
-

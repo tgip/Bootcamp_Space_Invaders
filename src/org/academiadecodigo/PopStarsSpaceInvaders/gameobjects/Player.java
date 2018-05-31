@@ -24,10 +24,8 @@ public class Player extends Check implements Moveable {
     private double posY;
     public List<Shot> list= new LinkedList<Shot>();
 
-
     private double gun_pos = 25;
     public Shot shot;
-
 
     protected CollisionDetector collisionDetector;
     protected GridDirection currentDirection;
@@ -60,11 +58,9 @@ public class Player extends Check implements Moveable {
         this.directionChangeLevel = directionChangeLevel;
     }
 
-
     /**
      * Sets the car into a crashed state
      */
-
 
     public void move() {
         if (direction == Direction.RIGHT) {

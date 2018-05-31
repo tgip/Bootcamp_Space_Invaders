@@ -14,11 +14,9 @@ public class Screen extends JComponent implements ActionListener {
     //@Override
     public void keyPressed(MouseEvent e) {}
 
-
     public void keyReleased(MouseEvent e) {}
 
     @Override
     public void actionPerformed(ActionEvent e) {}
-
 
 }

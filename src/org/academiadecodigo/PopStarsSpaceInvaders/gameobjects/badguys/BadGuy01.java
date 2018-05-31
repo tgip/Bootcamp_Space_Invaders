@@ -17,7 +17,6 @@ public class BadGuy01 extends GenericBadGuy {
     // private int gun_pos = 25;
     // private Shot shot;
 
-
     public BadGuy01(int pos_x, int pos_y) {
         this.pos_x = pos_x;
         this.pos_y = pos_y;
@@ -27,14 +26,12 @@ public class BadGuy01 extends GenericBadGuy {
         badIcon.draw();
         isDead=false;
 
-
     }
 
     @Override
     public void move(){
         badIcon.translate(0, 10);
     }
-
 
     //public Shot shoot(){
     //    Shot shot = new  Shot(pos_x +gun_pos,pos_y);
@@ -60,5 +57,3 @@ public class BadGuy01 extends GenericBadGuy {
  * can move in Direction
  * can die
  * */
-
-

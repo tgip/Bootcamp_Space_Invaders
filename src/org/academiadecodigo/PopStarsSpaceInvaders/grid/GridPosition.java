@@ -61,5 +61,4 @@ public interface GridPosition {
      */
     boolean equals(GridPosition position);
 
-
 }

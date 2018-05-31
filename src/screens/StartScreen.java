@@ -143,8 +143,4 @@ public class StartScreen extends Screen implements Config {
          * player.setFilename("lazer");player.play();
          */
 
-
     }
-
-
-

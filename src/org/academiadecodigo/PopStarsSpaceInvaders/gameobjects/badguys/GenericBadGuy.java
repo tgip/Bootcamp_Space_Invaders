@@ -22,8 +22,6 @@ public abstract class GenericBadGuy extends Check {
 
     public abstract void move();
 
-
-
     public boolean isDead() {
         return isDead;
     }

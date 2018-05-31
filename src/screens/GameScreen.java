@@ -10,7 +10,6 @@ import java.awt.image.BufferedImage;
 import java.util.LinkedList;
 import java.util.List;
 
-
 import org.academiadecodigo.PopStarsSpaceInvaders.gameobjects.Player;
 import org.academiadecodigo.PopStarsSpaceInvaders.Shot;
 import org.academiadecodigo.PopStarsSpaceInvaders.Game;
@@ -280,7 +279,6 @@ public class GameScreen extends Screen implements Config {
                 u.moveUpdate();
         }
 
-
         // Check if the game is over (life is 0)
         if (this.life <= 0) {
             gameOver();
@@ -293,7 +291,6 @@ public class GameScreen extends Screen implements Config {
  /*   private void gameOver() {
         Game.setScreen(Game.gameOverScreen);
     }
-
 
     public void remove(BadGuysShot object) {
         badGuysShot.remove(object);
