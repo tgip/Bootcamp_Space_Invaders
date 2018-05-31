@@ -29,50 +29,57 @@ public class Game {
 
   private CollisionDetector collisionDetector;
 
-  public void init (
+  public void init(
   ) {
-    simpleGfxGrid = new SimpleGfxGrid (100, 200);
-    simpleGfxGrid.init (
+    simpleGfxGrid = new SimpleGfxGrid(100, 200);
+    simpleGfxGrid.init(
     );
-    player = new Player ();
-    MouseListener mouseListener = new MouseListener (player);
+    player = new Player();
+    MouseListener mouseListener = new MouseListener(player);
 
-     ;
+    ;
 
     for (int i = 0; i < 20; i++
-    ) {
+            ) {
       x = x + 50;
-      badGuys[i] = new BadGuy01 (x, 10);
-  }} public void start (
-  ) throws InterruptedException {
-
-    while (true
-    ) {
-
-      // detectCollisions
-
-      collisionDetector = new CollisionDetector ();
-      Thread.sleep (100
-      );
-      moveEnemy (
-      );
-      for (Shot i:player.list
-      ) {
-	i.move ();
-  }}} public void moveEnemy (
-  ) {
- for (GenericBadGuy gb:badGuys) {
-      gb.move ();
-      collisionDetector.check (gb);
+      badGuys[i] = new BadGuy01(x, 10);
     }
   }
 
-  /*
-   * public void moveShot(){
-   * for(Shot sh : shot){
-   * sh.move(0,-1);
-   * //collisionDetector.check(sh);
-   * }
-   * } 
-   */
+  public void start(
+  ) throws InterruptedException {
+
+    while (true) {
+
+      // detectCollisions
+
+      collisionDetector = new CollisionDetector();
+      Thread.sleep(100);
+      moveEnemy();
+      for (Shot i : player.list) {
+        i.move();
+      }
+    }
+  }
+
+  public void moveEnemy() {
+
+    for (GenericBadGuy gb : badGuys) {
+      if (gb.getY() < (Config.BOARD_HEIGHT - Config.playerIcon_HEIGHT)) {
+        gb.move();
+        collisionDetector.check(gb);
+      } else {
+        gb.hide();
+      }
+    }
+
+    /*
+     * public void moveShot(){
+     * for(Shot sh : shot){
+     * sh.move(0,-1);
+     * //collisionDetector.check(sh);
+     * }
+     * }
+     */
+  }
 }
