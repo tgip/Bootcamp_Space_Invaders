@@ -65,7 +65,7 @@ public class Game {
   public void moveEnemy() {
 
     for (GenericBadGuy gb : badGuys) {
-      if (gb.getY() < (Config.BOARD_HEIGHT - Config.playerIcon_HEIGHT)) {
+      if (gb.getPosY() < (Config.BOARD_HEIGHT - Config.playerIcon_HEIGHT)) {
         gb.move();
         collisionDetector.check(gb);
       } else {

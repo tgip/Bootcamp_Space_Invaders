@@ -3,9 +3,9 @@ package org.academiadecodigo.PopStarsSpaceInvaders;
 public interface Config {
 
   public static final int BOARD_WIDTH = 1480;
-  public static final int BOARD_HEIGHT = 830;
-  public static final int BORDER_RIGHT = 30;
-  public static final int BORDER_LEFT = 5;
+  public static final int BOARD_HEIGHT = 832;
+  public static final int BORDER_RIGHT = 0;
+  public static final int BORDER_LEFT = 0;
 
   public static final int playerIcon_WIDTH = 100;
   public static final int playerIcon_HEIGHT = 100;

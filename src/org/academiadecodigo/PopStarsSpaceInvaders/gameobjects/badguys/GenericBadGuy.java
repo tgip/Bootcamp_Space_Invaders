@@ -8,6 +8,7 @@ public abstract class GenericBadGuy extends Check {
     private static BadGuysTypes type;
     private int health;
     private int speed;
+    private int posY;
     private Direction direction = null;
     private boolean isDead=false;
 
@@ -28,6 +29,11 @@ public abstract class GenericBadGuy extends Check {
 
     public void setDirection(Direction direction) {
         this.direction = direction;
+    }
+
+
+    public int getPosY(){
+        return posY;
     }
 
 
