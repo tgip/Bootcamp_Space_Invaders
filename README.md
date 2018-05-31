@@ -7,11 +7,11 @@ If your working on something ... put WIP in front of the [ ] and add your name (
 
 TODO : 
 
-- [ ] Everything ...
-
 - [X] Define BadGuy Object
 - [X] Mouse Handler - Humberto
 - [X] Define Player Object - Adriano
-- [X] WIP Define "Play Area" Object - Barbara
-- [ ] Create Images - Pedro
+- [X] Define "Play Area" Object - Barbara
+- [X] Create Images - Pedro
+- [X] Add sound - Adriano
+- [ ] Collision Detector
 - [ ] Buy Humberto beer !
