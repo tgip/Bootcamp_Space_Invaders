@@ -32,11 +32,10 @@ public class Player extends Check implements Moveable {
 
     public Player() {
 
-        posX=200;
-        posY=200;
+        posX=(Config.BOARD_HEIGHT-Config.playerIcon_WIDTH)/2;
+        posY=(Config.BOARD_WIDTH-Config.playerIcon_WIDTH)/2;
 
         playerIcon = new Picture(posX,posY,"resources/images/Humberto.png");
-        playerIcon.grow(-50,-50);
         playerIcon.draw();
 
         currentDirection = GridDirection.values()[(int) (Math.random() * GridDirection.values().length)];
