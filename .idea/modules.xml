@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Bootcamp_Space_Invaders-master 2.iml" filepath="$PROJECT_DIR$/Bootcamp_Space_Invaders-master 2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Project/PopStarSpaceInvaders/src/org/academiadecodigo/academiadecodigo.iml" filepath="$PROJECT_DIR$/Project/PopStarSpaceInvaders/src/org/academiadecodigo/academiadecodigo.iml" />
+    </modules>
+  </component>
+</project>
