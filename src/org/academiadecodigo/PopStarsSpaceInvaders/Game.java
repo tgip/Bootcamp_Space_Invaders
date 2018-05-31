@@ -27,7 +27,7 @@ public class Game {
   private SimpleGfxGrid simpleGfxGrid;
   private int x = 10;
 
-  private CollisionDetector collisionDetector;
+
 
   public void init(
   ) {
@@ -53,11 +53,17 @@ public class Game {
 
       // detectCollisions
 
-      collisionDetector = new CollisionDetector();
+
       Thread.sleep(100);
       moveEnemy();
       for (Shot i : player.list) {
         i.move();
+        for (GenericBadGuy gb : badGuys){
+          if(i.colision(gb)){
+            gb.hide();
+          };
+        }
+
       }
     }
   }
@@ -67,7 +73,8 @@ public class Game {
     for (GenericBadGuy gb : badGuys) {
       if (gb.getPosY() < (Config.BOARD_HEIGHT - Config.playerIcon_HEIGHT)) {
         gb.move();
-        collisionDetector.check(gb);
+
+
       } else {
         gb.hide();
       }

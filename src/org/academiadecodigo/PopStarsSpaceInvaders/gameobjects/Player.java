@@ -27,8 +27,8 @@ public class Player extends Check implements Moveable {
     private double gun_pos = 25;
     public Shot shot;
 
-    protected CollisionDetector collisionDetector;
-    protected GridDirection currentDirection;
+
+
 
     public Player() {
 
@@ -38,7 +38,7 @@ public class Player extends Check implements Moveable {
         playerIcon = new Picture(posX,posY,"resources/images/Humberto.png");
         playerIcon.draw();
 
-        currentDirection = GridDirection.values()[(int) (Math.random() * GridDirection.values().length)];
+
     }
 
     public void setGrid(Grid grid) {
@@ -49,9 +49,6 @@ public class Player extends Check implements Moveable {
         return pos;
     }
 
-    public void setCollisionDetector(CollisionDetector collisionDetector) {
-        this.collisionDetector = collisionDetector;
-    }
 
     public void setDirectionChangeLevel(int directionChangeLevel) {
         this.directionChangeLevel = directionChangeLevel;

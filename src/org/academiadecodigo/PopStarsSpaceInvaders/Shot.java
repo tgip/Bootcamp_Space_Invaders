@@ -1,5 +1,8 @@
 package org.academiadecodigo.PopStarsSpaceInvaders;
 
+import org.academiadecodigo.PopStarsSpaceInvaders.gameobjects.GetRndBadGuyImg;
+import org.academiadecodigo.PopStarsSpaceInvaders.gameobjects.Player;
+import org.academiadecodigo.PopStarsSpaceInvaders.gameobjects.badguys.GenericBadGuy;
 import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 
@@ -51,8 +54,15 @@ public class Shot extends Check {
     this.posY = posY;
   }
 
-  public void setDirection (Direction direction
-  ) {
+
+  public boolean colision(GenericBadGuy genericBadGuy){
+    if(this.posY==genericBadGuy.getPosY()){
+      return true;
+    }
+    return false;
+  }
+
+  public void setDirection (Direction direction) {
     this.direction = Direction.UP;
   }
 }
