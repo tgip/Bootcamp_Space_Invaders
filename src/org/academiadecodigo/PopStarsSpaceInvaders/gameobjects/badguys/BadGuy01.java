@@ -1,6 +1,7 @@
 package org.academiadecodigo.PopStarsSpaceInvaders.gameobjects.badguys;
 
 import org.academiadecodigo.PopStarsSpaceInvaders.Direction;
+import org.academiadecodigo.PopStarsSpaceInvaders.gameobjects.GetRndBadGuyImg;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class BadGuy01 extends GenericBadGuy {
@@ -12,6 +13,8 @@ public class BadGuy01 extends GenericBadGuy {
     private int pos_x;
     private int posY;
     private boolean isDead;
+    private GetRndBadGuyImg get=new GetRndBadGuyImg();
+
     // private int gun_pos = 25;
     // private Shot shot;
 
@@ -19,7 +22,7 @@ public class BadGuy01 extends GenericBadGuy {
         this.pos_x = pos_x;
         this.posY = pos_y;
 
-        badIcon = new Picture(pos_x,pos_y,"resources/images/Adriano.png");
+        badIcon = new Picture(pos_x,pos_y,get.get());
         badIcon.draw();
         isDead=false;
 

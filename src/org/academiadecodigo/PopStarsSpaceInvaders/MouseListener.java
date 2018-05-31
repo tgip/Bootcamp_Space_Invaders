@@ -40,7 +40,6 @@ public class MouseListener extends Check implements MouseHandler {
         if (x_pos > Config.BOARD_WIDTH-Config.playerIcon_WIDTH+10){
             x_pos = Config.BOARD_WIDTH-Config.playerIcon_WIDTH+10;}
         else if (x_pos < 10) {x_pos = 10;}
-        System.out.println(x_pos);
         player.move (x_pos, Config.BOARD_HEIGHT-Config.playerIcon_WIDTH);
     }
 }

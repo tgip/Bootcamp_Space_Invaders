@@ -20,7 +20,7 @@ public class GetRndBadGuyImg {
             "Ruben",
             "Teresa"
     };
-    public String GetRndBadGuyImg() {
+    public String get() {
         return ("resources/images/"+imageNames[(int) (Math.random() * imageNames.length)]+".png");
     }
 }
