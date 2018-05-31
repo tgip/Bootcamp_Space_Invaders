@@ -33,10 +33,6 @@ public class BadGuy01 extends GenericBadGuy {
         badIcon.translate(0, 10);
     }
 
-    //public Shot shoot(){
-    //    Shot shot = new  Shot(pos_x +gun_pos,pos_y);
-    //     return shot;
-    // }
 
     @Override
 
@@ -47,6 +43,15 @@ public class BadGuy01 extends GenericBadGuy {
     @Override
     public boolean isDead(){
         return isDead;
+    }
+
+    public int getPos_y(){
+        return pos_y;
+    }
+
+
+    public void hide(){
+        badIcon.delete();
     }
 }
 

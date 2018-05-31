@@ -29,4 +29,9 @@ public abstract class GenericBadGuy extends Check {
     public void setDirection(Direction direction) {
         this.direction = direction;
     }
+
+
+    public void hide(){
+
+    }
 }
