@@ -13,7 +13,7 @@ public class Player extends GameObject {
     private GridPosition pos;
     private Grid grid;
     private boolean dead;
-    //  private int directionChangeLevel = 8;
+    private GetRndPlayerImg get=new GetRndPlayerImg();
     private int health;
     private Direction direction;
     private double posX;
@@ -25,14 +25,13 @@ public class Player extends GameObject {
     public Shot shot;
 
     public Player() {
-        super(200, 200, "resources/images/Francisco.png");
+        super(200, 200, GetRndPlayerImg.get());
 
         posX = 200;
         posY = 200;
 
         //picture.grow(-50, -50);
         picture.draw();
-
     }
 
 
@@ -41,18 +40,11 @@ public class Player extends GameObject {
 
     }
 
-    ;
-
-
     @Override
     public boolean isDestroyed() {
         picture.delete();
         return dead;
-
-
     }
-
-    ;
 
     @Override
     public void hit() {

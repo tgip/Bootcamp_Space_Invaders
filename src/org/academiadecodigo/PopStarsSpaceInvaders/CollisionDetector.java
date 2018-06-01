@@ -29,10 +29,6 @@ public class CollisionDetector {
         }
     }
 
-  /*public void remove(GameObject gameObject) {
-    this.gameObjects.remove(gameObject);
-  }*/
-
     public void collide() {
 
         for (GenericBadGuy badGuy : badGuys) {
@@ -52,6 +48,10 @@ public class CollisionDetector {
                     if (shot.overlaps(badGuy) || badGuy.overlaps(shot)) {
                         badGuy.hit();
                         shots.remove(shot);
+                        /**
+                         * Update scoreboard
+                         * scoreboard(badGuy.hitpoints)
+                         * */
                         break;
                     }
                 }
@@ -60,6 +60,9 @@ public class CollisionDetector {
     }
 
     public void reset(GenericBadGuy[] badGuys) {
+        /**
+         * This starts a new level
+         * */
         this.badGuys = badGuys;
         synchronized (shots) {
             shots.clear();

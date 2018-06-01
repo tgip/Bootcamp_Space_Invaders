@@ -52,8 +52,7 @@ public class Shot extends GameObject {
         }
     }
 
-    public double getPosX(
-    ) {
+    public double getPosX() {
         return posX;
     }
 
