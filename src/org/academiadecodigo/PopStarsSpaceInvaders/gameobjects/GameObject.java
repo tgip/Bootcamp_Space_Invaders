@@ -2,6 +2,7 @@ package org.academiadecodigo.PopStarsSpaceInvaders.gameobjects;
 
 import org.academiadecodigo.PopStarsSpaceInvaders.Destroyable;
 import org.academiadecodigo.simplegraphics.graphics.Canvas;
+import org.academiadecodigo.simplegraphics.graphics.Movable;
 import org.academiadecodigo.simplegraphics.graphics.Shape;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 import org.academiadecodigo.PopStarsSpaceInvaders.Direction;
@@ -11,12 +12,12 @@ import java.util.List;
 public abstract class GameObject implements Drawable, Destroyable {
 
     private Direction direction;
-    Picture picture;
+    protected Picture picture;
     private boolean destroyed;
-
+    //private Shape picture;
 
     public GameObject(int x, int y, String path) {
-        this.picture = new Picture(x,y,path);
+        this.picture = new Picture(x, y, path);
         this.destroyed = false;
     }
 
@@ -47,9 +48,10 @@ public abstract class GameObject implements Drawable, Destroyable {
                 dx = 0;
                 break;
             case RIGHT:
-                dx =0;
+                dx = 0;
                 break;
         }
+
         this.picture.translate(dx, dy);
     }
 
@@ -73,15 +75,34 @@ public abstract class GameObject implements Drawable, Destroyable {
     /**
      * return true if the given GameObject overlaps this
      */
-    public boolean overlaps(GameObject other) {
-        List<Shape> shapes = Canvas.getInstance().getShapesInArea(
-                getX(),
-                getY(),
-                getX() + this.picture.getWidth(),
-                getY() + this.picture.getHeight()
-        );
 
-        return shapes.contains(other.picture);
+    public boolean overlaps(GameObject other) {
+
+        boolean topLeft =
+                getX() >= other.getX() && getX() <= other.getEndX() &&
+                        getY() >= other.getY() && getY() <= other.getEndY();
+
+        boolean topRight =
+                getEndX() >= other.getX() && getEndX() <= other.getEndX() &&
+                        getY() >= other.getY() && getY() <= other.getEndY();
+
+        boolean bottomLeft =
+                getX() >= other.getX() && getX() <= other.getEndX() &&
+                        getEndY() >= other.getY() && getEndY() <= other.getEndY();
+
+        boolean bottomRight =
+                getEndX() >= other.getX() && getEndX() <= other.getEndX() &&
+                        getEndY() >= other.getY() && getEndY() <= other.getEndY();
+
+        return topLeft || topRight || bottomLeft || bottomRight;
+    }
+
+    private int getEndX() {
+        return picture.getX() + picture.getWidth();
+    }
+
+    protected int getEndY() {
+        return picture.getY() + picture.getHeight();
     }
 
     public int getX() {

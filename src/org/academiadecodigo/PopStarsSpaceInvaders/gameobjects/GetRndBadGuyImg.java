@@ -1,7 +1,7 @@
 package org.academiadecodigo.PopStarsSpaceInvaders.gameobjects;
 
 public class GetRndBadGuyImg {
-    String[] imageNames = {
+    private static String[] imageNames = {
             "Adriano",
             "Alexandre",
             "Alfredo",
@@ -20,7 +20,7 @@ public class GetRndBadGuyImg {
             "Ruben",
             "Teresa"
     };
-    public String get() {
+    public static String get() {
         return ("resources/images/"+imageNames[(int) (Math.random() * imageNames.length)]+".png");
     }
 }
