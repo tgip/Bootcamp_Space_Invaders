@@ -4,6 +4,7 @@ import org.academiadecodigo.PopStarsSpaceInvaders.gameobjects.GameObject;
 import org.academiadecodigo.PopStarsSpaceInvaders.gameobjects.badguys.
         BadGuy01;
 import org.academiadecodigo.PopStarsSpaceInvaders.gameobjects.badguys.BadGuy02;
+import org.academiadecodigo.PopStarsSpaceInvaders.gameobjects.badguys.Boss;
 import org.academiadecodigo.PopStarsSpaceInvaders.gameobjects.badguys.
         GenericBadGuy;
 import org.academiadecodigo.PopStarsSpaceInvaders.gameobjects.Player;
@@ -18,7 +19,7 @@ public class Game {
     private GameObject[] stars = new GameObject[10];
     private Player player;
     private CollisionDetector collisionDetector;
-    private int level =1;
+    private int level = 1;
     private boolean allDead;
     private Painel painel;
 
@@ -28,7 +29,7 @@ public class Game {
 
 
         new Picture(10, 10, "resources/images/Stars.png").draw();
-        painel=new Painel();
+        painel = new Painel();
         player = new Player();
         MouseListener mouseListener = new MouseListener(player);
 
@@ -70,32 +71,53 @@ public class Game {
                 newGame();
 
             }
-            if(player.getDead()){
+            if (player.getDead()) {
                 for (GenericBadGuy badGuy : badGuys) {
-                     badGuy.hide();
-                     level = 0;
-                    }
+                    badGuy.hide();
+                    level = 0;
+                }
                 player.setDead(false);
                 newGame();
                 player.show();
                 painel.addLevel(1);
                 collisionDetector.setPoints(0);
-                
+
             }
         }
-        }
+    }
 
 
     private void generateBadGuys() {
         int x = 10;
+        Double a;
         for (int i = 0; i < badGuys.length; i++) {
+            a=(Double)(Math.random() * ( 1 - 0 ));
             x = x + 120;
-            badGuys[i] = ((Math.random()<0.5)? new BadGuy01(x, 10): new BadGuy02(x,10));
-            badGuys[i].setLevelUp(level);
+            if (level < 3) {
+                badGuys[i] = ((Math.random() < 0.5) ? new BadGuy01(x, 10) : new BadGuy02(x, 10));
+                badGuys[i].setLevelUp(level);
+            } else {
+                if(a<0.4){
+                    badGuys[i] =new BadGuy01(x, 10);
+                    badGuys[i].setLevelUp(level);
+                }else if(a>0.4&&a<0.8){
+                    badGuys[i] =new BadGuy02(x, 10);
+                    badGuys[i].setLevelUp(level);
+                }else{
+                    badGuys[i]=new Boss(x,10);
+                    if(level<=5){
+                        badGuys[i].setLevelUp(level);
+                    }
+                }
+
+
+
+
+            }
         }
 
 
-        }
+    }
 
 
     public void moveEnemy() {
@@ -105,10 +127,11 @@ public class Game {
         }
     }
 
-    public void newGame(){
+    public void newGame() {
 
         generateBadGuys();
         player.reset();
         collisionDetector.reset(badGuys);
     }
+
 }

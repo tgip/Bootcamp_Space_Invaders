@@ -25,9 +25,9 @@ public class Player extends GameObject {
 
 
     public Player() {
-        super(200, 200, GetRndPlayerImg.get());
-        posX = 200;
-        posY = 200;
+        super(0, Config.BOARD_HEIGHT - Config.playerIcon_HEIGHT, GetRndPlayerImg.get());
+        posX = 0;
+        posY = Config.BOARD_HEIGHT - Config.playerIcon_HEIGHT;
         picture.draw();
 
     }
