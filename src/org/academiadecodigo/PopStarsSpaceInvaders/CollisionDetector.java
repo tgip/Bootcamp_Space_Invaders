@@ -15,7 +15,10 @@ public class CollisionDetector {
     private List<Shot> shots;
     private ImageStar starImage;
     private LinkedList<ImageStar> arrayStars = new LinkedList<>();
-    public static final Sound sound = new Sound("/resources/sounds/94185__nbs-dark__explosion.wav");
+
+
+    private int points;
+
 
 
     public CollisionDetector(Player player, GenericBadGuy[] badGuys) {
@@ -45,11 +48,10 @@ public class CollisionDetector {
             synchronized (shots) {
 
                 for (Shot shot : shots) {
-
                     if (shot.overlaps(badGuy) || badGuy.overlaps(shot)) {
-                        sound.play(true);
                         shots.remove(shot);
                         badGuy.hit();
+                        points+=150;
                         ImageStar aStar = new ImageStar(badGuy.getPosX(), badGuy.getPosY());
                         addStar(aStar);
                         break;
@@ -76,5 +78,13 @@ public class CollisionDetector {
     public void addStar(ImageStar star){
         arrayStars.add(star);
     }
+
+    public int getPoints() {
+        return points;
+    }
+    public void setPoints(int points) {
+        this.points = points;
+    }
+
 
 }

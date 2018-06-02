@@ -23,6 +23,7 @@ public class Game {
     private Painel painel;
 
 
+
     public void init() {
 
 
@@ -47,6 +48,7 @@ public class Game {
                 i.move();
             }
 
+            painel.addPoint(collisionDetector.getPoints());
 
             collisionDetector.collide();
 
@@ -62,20 +64,23 @@ public class Game {
 
 
             if (allDead) {
+                level++;
+                painel.addLevel(level);
                 System.out.println("Level" + level);
                 newGame();
-
 
             }
             if(player.getDead()){
                 for (GenericBadGuy badGuy : badGuys) {
                      badGuy.hide();
-                     level =0;
+                     level = 0;
                     }
                 player.setDead(false);
                 newGame();
                 player.show();
-
+                painel.addLevel(1);
+                collisionDetector.setPoints(0);
+                
             }
         }
         }
@@ -83,7 +88,6 @@ public class Game {
 
     private void generateBadGuys() {
         int x = 10;
-        level = level +1;
         for (int i = 0; i < badGuys.length; i++) {
             x = x + 120;
             badGuys[i] = ((Math.random()<0.5)? new BadGuy01(x, 10): new BadGuy02(x,10));

@@ -16,6 +16,7 @@ public class Player extends GameObject {
     private double posY;
     public List<Shot> list = new LinkedList<Shot>();
     private CollisionDetector collisionDetector;
+    public static final Sound sound = new Sound("/resources/sounds/FudiMe.wav");
 
 
 
@@ -49,6 +50,7 @@ public class Player extends GameObject {
 
     @Override
     public void hit() {
+        sound.play(true);
         dead = true;
         picture.delete();
 

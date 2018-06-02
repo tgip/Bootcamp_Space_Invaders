@@ -2,6 +2,7 @@ package org.academiadecodigo.PopStarsSpaceInvaders.gameobjects.badguys;
 
 import org.academiadecodigo.PopStarsSpaceInvaders.Config;
 import org.academiadecodigo.PopStarsSpaceInvaders.Direction;
+import org.academiadecodigo.PopStarsSpaceInvaders.Sound;
 import org.academiadecodigo.PopStarsSpaceInvaders.gameobjects.GameObject;
 import org.academiadecodigo.PopStarsSpaceInvaders.gameobjects.GetRndBadGuyImg;
 
@@ -13,6 +14,7 @@ public class BadGuy01 extends GenericBadGuy {
     private boolean isDead;
     private GetRndBadGuyImg get=new GetRndBadGuyImg();
     private int levelUp;
+    public static final Sound sound = new Sound("/resources/sounds/BadGuyDead.wav");
 
 
 
@@ -51,6 +53,7 @@ public class BadGuy01 extends GenericBadGuy {
 
     @Override
     public void hit(){
+        sound.play(true);
         isDead=true;
         hide();
 
