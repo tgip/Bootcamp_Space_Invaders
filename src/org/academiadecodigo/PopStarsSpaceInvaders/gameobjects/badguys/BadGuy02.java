@@ -50,7 +50,7 @@ public class BadGuy02 extends GenericBadGuy  {
         }
 
         picture.translate(0, 5+(levelUp+1));
-        posY += 1+levelUp;
+        posY += 5+(levelUp+1);
     }
 
     public void shoot() {

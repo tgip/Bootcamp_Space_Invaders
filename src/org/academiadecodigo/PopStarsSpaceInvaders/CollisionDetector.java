@@ -38,7 +38,7 @@ public class CollisionDetector {
                 continue;
             }
 
-            if (player.overlaps(badGuy)) {
+            if (player.overlaps(badGuy)|| badGuy.getPosY() > (Config.BOARD_HEIGHT - Config.playerIcon_HEIGHT*2)) {
                 player.hit();
             }
 
@@ -76,4 +76,5 @@ public class CollisionDetector {
     public void addStar(ImageStar star){
         arrayStars.add(star);
     }
+
 }

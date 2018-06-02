@@ -20,10 +20,14 @@ public class Game {
     private CollisionDetector collisionDetector;
     private int level =0;
     private boolean allDead;
+    private Painel painel;
+
 
     public void init() {
 
+
         new Picture(10, 10, "resources/images/Stars.png").draw();
+        painel=new Painel();
         player = new Player();
         MouseListener mouseListener = new MouseListener(player);
 
@@ -44,7 +48,6 @@ public class Game {
             }
 
 
-
             collisionDetector.collide();
 
 
@@ -52,9 +55,11 @@ public class Game {
             for (GenericBadGuy badGuy : badGuys) {
                 if (!badGuy.isDestroyed()) {
                     allDead = false;
+
                     break;
                 }
             }
+
 
             if (allDead) {
                 System.out.println("Level" + level);

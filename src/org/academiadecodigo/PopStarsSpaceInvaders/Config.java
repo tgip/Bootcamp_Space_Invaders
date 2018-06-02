@@ -24,8 +24,6 @@ public interface Config {
 
   public static final int NUMBER_OF_ALIENS_TO_DESTROY = 10;
 
-  public static final int PLAYER_WIDTH = 20;
-  public static final int PLAYER_HEIGHT = 20;
   public static final int PLAYER_START_HEALTH = 20;
 
 }
