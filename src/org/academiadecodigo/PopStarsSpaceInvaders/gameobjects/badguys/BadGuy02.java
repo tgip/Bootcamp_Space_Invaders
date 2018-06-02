@@ -49,8 +49,8 @@ public class BadGuy02 extends GenericBadGuy  {
             return;
         }
 
-        picture.translate(0, 5+(levelUp+5));
-        posY += 5+levelUp;
+        picture.translate(0, 5+(levelUp+1));
+        posY += 1+levelUp;
     }
 
     public void shoot() {
@@ -63,6 +63,12 @@ public class BadGuy02 extends GenericBadGuy  {
     @Override
     public void setLevelUp(int increase){
         this.levelUp=this.levelUp+increase;
+    }
+
+    @Override
+    public int getPosY() {
+        return posY;
+
     }
 
 

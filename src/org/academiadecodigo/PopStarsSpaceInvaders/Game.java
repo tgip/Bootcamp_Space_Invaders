@@ -18,7 +18,7 @@ public class Game {
     private GameObject[] stars = new GameObject[10];
     private Player player;
     private CollisionDetector collisionDetector;
-    private int level =10;
+    private int level =0;
     private boolean allDead;
 
     public void init() {

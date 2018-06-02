@@ -16,15 +16,15 @@ public class ImageStar {
     }
 
 
-    public void hide(){
-        picStar.delete();
-    }
+    //public void hide(){
+     //   picStar.delete();
+    //}
 
     public void move(){
         picStar.translate(0,-10);
         posY-=1;
         if(posY<=10){
-            hide();
+            picStar.delete();
         }
     }
 }
