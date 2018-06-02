@@ -1,6 +1,7 @@
 package org.academiadecodigo.PopStarsSpaceInvaders.gameobjects;
 
 import org.academiadecodigo.PopStarsSpaceInvaders.Destroyable;
+import org.academiadecodigo.PopStarsSpaceInvaders.gameobjects.badguys.BadGuy02;
 import org.academiadecodigo.simplegraphics.graphics.Canvas;
 import org.academiadecodigo.simplegraphics.graphics.Movable;
 import org.academiadecodigo.simplegraphics.graphics.Shape;
@@ -17,9 +18,10 @@ public abstract class GameObject implements Drawable, Destroyable {
     //private Shape picture;
 
     public GameObject(int x, int y, String path) {
-        this.picture = new Picture(x, y, path);
-        this.destroyed = false;
-    }
+            this.picture = new Picture(x, y, path);
+            this.destroyed = false;
+        }
+
 
     public void show() {
         this.picture.draw();

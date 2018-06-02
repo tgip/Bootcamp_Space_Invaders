@@ -1,4 +1,4 @@
-package org.academiadecodigo.PopStarsSpaceInvaders;
+package org.academiadecodigo.PopStarsSpaceInvaders.Not;
 
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 

@@ -1,21 +1,22 @@
 package org.academiadecodigo.PopStarsSpaceInvaders;
 
-import java.sql.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
-import org.academiadecodigo.PopStarsSpaceInvaders.gameobjects.GameObject;
+
 import org.academiadecodigo.PopStarsSpaceInvaders.gameobjects.Player;
 import org.academiadecodigo.PopStarsSpaceInvaders.gameobjects.badguys.GenericBadGuy;
+import org.academiadecodigo.PopStarsSpaceInvaders.gameobjects.badguys.ImageStar;
 
 public class CollisionDetector {
 
     private Player player;
     private GenericBadGuy[] badGuys;
     private List<Shot> shots;
-    //private List<GameObject> gameObjects;
+    private ImageStar starImage;
+    private LinkedList<ImageStar> arrayStars = new LinkedList<>();
+    public static final Sound sound = new Sound("/resources/sounds/94185__nbs-dark__explosion.wav");
+
 
     public CollisionDetector(Player player, GenericBadGuy[] badGuys) {
         this.player = player;
@@ -29,8 +30,9 @@ public class CollisionDetector {
         }
     }
 
-    public void collide() {
 
+    public void collide() {
+        moveStars();
         for (GenericBadGuy badGuy : badGuys) {
             if (badGuy.isDestroyed()) {
                 continue;
@@ -38,7 +40,6 @@ public class CollisionDetector {
 
             if (player.overlaps(badGuy)) {
                 player.hit();
-                return;
             }
 
             synchronized (shots) {
@@ -46,12 +47,11 @@ public class CollisionDetector {
                 for (Shot shot : shots) {
 
                     if (shot.overlaps(badGuy) || badGuy.overlaps(shot)) {
-                        badGuy.hit();
+                        sound.play(true);
                         shots.remove(shot);
-                        /**
-                         * Update scoreboard
-                         * scoreboard(badGuy.hitpoints)
-                         * */
+                        badGuy.hit();
+                        ImageStar aStar = new ImageStar(badGuy.getPosX(), badGuy.getPosY());
+                        addStar(aStar);
                         break;
                     }
                 }
@@ -60,12 +60,20 @@ public class CollisionDetector {
     }
 
     public void reset(GenericBadGuy[] badGuys) {
-        /**
-         * This starts a new level
-         * */
         this.badGuys = badGuys;
         synchronized (shots) {
             shots.clear();
         }
+    }
+    public void moveStars(){
+        for (ImageStar eachStar : arrayStars){
+            if (eachStar != null){
+                eachStar.move();
+            }
+        }
+    }
+
+    public void addStar(ImageStar star){
+        arrayStars.add(star);
     }
 }
