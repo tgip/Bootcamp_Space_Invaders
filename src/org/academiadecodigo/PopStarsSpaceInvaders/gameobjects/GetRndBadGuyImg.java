@@ -17,14 +17,17 @@ public class GetRndBadGuyImg {
             "mariana",
             "Monica",
             "Nuno",
+            "Pedrof",
+            "Pedrov",
             "Ruben",
+            "Seringas",
             "Teresa"
     };
     public static String get() {
-        return ("resources/images/"+imageNames[(int) (Math.random() * imageNames.length)]+".png");
+        return ("resources/images/round/"+imageNames[(int) (Math.random() * imageNames.length)]+".png");
     }
 
     public static String badGuy02() {
-        return ("resources/images/"+imageNames[(int) (Math.random() * imageNames.length)]+".png");
+        return ("resources/images/round/"+imageNames[(int) (Math.random() * imageNames.length)]+".png");
     }
 }

@@ -17,11 +17,14 @@ public class Player extends GameObject {
     public List<Shot> list = new LinkedList<Shot>();
     private CollisionDetector collisionDetector;
 
+
+
+    private int playerLevel;
     private double gun_pos = 25;
 
 
     public Player() {
-        super(200, 200, "resources/images/Francisco.png");
+        super(200, 200, GetRndPlayerImg.get());
         posX = 200;
         posY = 200;
         picture.draw();
@@ -35,8 +38,6 @@ public class Player extends GameObject {
     }
 
 
-
-
     @Override
     public boolean isDestroyed() {
         picture.delete();
@@ -44,7 +45,6 @@ public class Player extends GameObject {
 
 
     }
-
 
 
     @Override
@@ -92,8 +92,8 @@ public class Player extends GameObject {
         return dead;
     }
 
-    public void setDead(boolean b){
-        this.dead=b;
+    public void setDead(boolean b) {
+        this.dead = b;
     }
 
 

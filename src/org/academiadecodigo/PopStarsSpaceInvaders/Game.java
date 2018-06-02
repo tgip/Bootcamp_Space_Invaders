@@ -18,7 +18,7 @@ public class Game {
     private GameObject[] stars = new GameObject[10];
     private Player player;
     private CollisionDetector collisionDetector;
-    private int level =0;
+    private int level =1;
     private boolean allDead;
     private Painel painel;
 
@@ -64,6 +64,7 @@ public class Game {
             if (allDead) {
                 System.out.println("Level" + level);
                 newGame();
+
 
             }
             if(player.getDead()){
