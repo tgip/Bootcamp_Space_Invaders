@@ -37,11 +37,11 @@ public class MouseListener implements MouseHandler {
     @Override
     public void mouseMoved(MouseEvent e) {
         x_pos = (int) e.getX();
-        if (x_pos > Config.BOARD_WIDTH - Config.playerIcon_WIDTH + 10) {
+        if (x_pos > (Config.BOARD_WIDTH - Config.playerIcon_WIDTH + 10)) {
             x_pos = Config.BOARD_WIDTH - Config.playerIcon_WIDTH + 10;
         } else if (x_pos < 10) {
             x_pos = 10;
         }
-        player.move(x_pos, Config.BOARD_HEIGHT - Config.playerIcon_HEIGHT);
+        player.move(x_pos, (Config.BOARD_HEIGHT - Config.playerIcon_HEIGHT));
     }
 }

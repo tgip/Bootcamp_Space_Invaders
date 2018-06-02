@@ -1,35 +1,28 @@
 package org.academiadecodigo.PopStarsSpaceInvaders;
 
+import org.academiadecodigo.PopStarsSpaceInvaders.gameobjects.GameObject;
 import org.academiadecodigo.PopStarsSpaceInvaders.gameobjects.badguys.
         BadGuy01;
+import org.academiadecodigo.PopStarsSpaceInvaders.gameobjects.badguys.BadGuy02;
 import org.academiadecodigo.PopStarsSpaceInvaders.gameobjects.badguys.
         GenericBadGuy;
 import org.academiadecodigo.PopStarsSpaceInvaders.gameobjects.Player;
-import org.academiadecodigo.PopStarsSpaceInvaders.grid.Grid;
-import org.academiadecodigo.PopStarsSpaceInvaders.simplegfx.SimpleGfxGrid;
-import org.academiadecodigo.simplegraphics.graphics.Movable;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
-
-import java.awt.Dimension;
-
-import java.util.LinkedList;
-
-import javax.swing.JPanel;
 
 /**
  * The game logic
  */
 public class Game {
 
-    private Dimension d;
     private GenericBadGuy[] badGuys = new GenericBadGuy[10];
+    private GameObject[] stars = new GameObject[10];
     private Player player;
     private CollisionDetector collisionDetector;
-
+    private int level =0;
+    private boolean allDead;
 
     public void init() {
-        //simpleGfxGrid = new SimpleGfxGrid(100, 200);
-        //simpleGfxGrid.init();
+
         new Picture(10, 10, "resources/images/Stars.png").draw();
         player = new Player();
         MouseListener mouseListener = new MouseListener(player);
@@ -50,7 +43,10 @@ public class Game {
                 i.move();
             }
 
+
+
             collisionDetector.collide();
+
 
             boolean allDead = true;
             for (GenericBadGuy badGuy : badGuys) {
@@ -61,26 +57,48 @@ public class Game {
             }
 
             if (allDead) {
-                generateBadGuys();
-                player.reset();
-                collisionDetector.reset(badGuys);
+                System.out.println("Level" + level);
+                newGame();
+
+            }
+            if(player.getDead()){
+                for (GenericBadGuy badGuy : badGuys) {
+                     badGuy.hide();
+                     level =0;
+                    }
+                player.setDead(false);
+                newGame();
+                player.show();
+
             }
         }
-    }
+        }
+
 
     private void generateBadGuys() {
         int x = 10;
-
+        level = level +1;
         for (int i = 0; i < badGuys.length; i++) {
             x = x + 120;
-            badGuys[i] = new BadGuy01(x, 10);
+            badGuys[i] = ((Math.random()<0.5)? new BadGuy01(x, 10): new BadGuy02(x,10));
+            badGuys[i].setLevelUp(level);
         }
-    }
+
+
+        }
+
 
     public void moveEnemy() {
         for (GenericBadGuy gb : badGuys) {
             gb.move();
 
         }
+    }
+
+    public void newGame(){
+
+        generateBadGuys();
+        player.reset();
+        collisionDetector.reset(badGuys);
     }
 }

@@ -11,7 +11,6 @@ import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 
 public class Shot extends GameObject {
 
-    private Rectangle rectangle;
     private boolean isDead;
     private int health;
     private Direction direction;
@@ -22,21 +21,10 @@ public class Shot extends GameObject {
 
     public Shot(double originX, double originY) {
         super(0, 0, "resources/images/potato.png");
-        //)
-  /*super(posX, posY, "resources/images/Humberto.png");
 
-  //posX=200;
-  //posY=200;
-
-   picture.grow(-50,-50);
-    picture.draw();*/
 
         posY = originY;
         posX = originX;
-        //rectangle = new Rectangle(originX, originY, 5, 10)
-        //rectangle.setColor (Color.YELLOW);
-        //rectangle.draw();
-        //rectangle.fill();
         sound.play(true);
         picture.translate(originX, originY);
         show();
@@ -44,15 +32,27 @@ public class Shot extends GameObject {
 
     public void move() {
         if (posY > 10) {
-            picture.translate(0, -10);
-            setPosY(getPosY() - 10);
+            picture.translate(0, -20);
+            setPosY(getPosY() - 20);
         }
         else {
             hide();
         }
     }
 
-    public double getPosX() {
+    public void move(int enemyShotPosition) {
+        if (posY < 10) {
+            picture.translate(0, enemyShotPosition);
+            setPosY(getPosY() + enemyShotPosition);
+        }
+        else {
+
+            hide();
+        }
+    }
+
+    public double getPosX(
+    ) {
         return posX;
     }
 
@@ -89,12 +89,6 @@ public class Shot extends GameObject {
     }
 
 
-    public boolean colision(GenericBadGuy genericBadGuy) {
-        if (this.posY == genericBadGuy.getPosY()) {
-            return true;
-        }
-        return false;
-    }
 
     public void setDirection(Direction direction) {
         this.direction = Direction.UP;

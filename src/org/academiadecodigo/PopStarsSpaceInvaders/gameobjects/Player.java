@@ -1,19 +1,15 @@
 package org.academiadecodigo.PopStarsSpaceInvaders.gameobjects;
 
 import org.academiadecodigo.PopStarsSpaceInvaders.*;
-import org.academiadecodigo.PopStarsSpaceInvaders.grid.Grid;
-import org.academiadecodigo.PopStarsSpaceInvaders.grid.GridDirection;
-import org.academiadecodigo.PopStarsSpaceInvaders.grid.GridPosition;
+import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 import java.util.LinkedList;
 import java.util.List;
 
 public class Player extends GameObject {
 
-    private GridPosition pos;
-    private Grid grid;
     private boolean dead;
-    private GetRndPlayerImg get=new GetRndPlayerImg();
+    //  private int directionChangeLevel = 8;
     private int health;
     private Direction direction;
     private double posX;
@@ -22,16 +18,14 @@ public class Player extends GameObject {
     private CollisionDetector collisionDetector;
 
     private double gun_pos = 25;
-    public Shot shot;
+
 
     public Player() {
-        super(200, 200, GetRndPlayerImg.get());
-
+        super(200, 200, "resources/images/Francisco.png");
         posX = 200;
         posY = 200;
-
-        //picture.grow(-50, -50);
         picture.draw();
+
     }
 
 
@@ -40,24 +34,24 @@ public class Player extends GameObject {
 
     }
 
+
+
+
     @Override
     public boolean isDestroyed() {
         picture.delete();
         return dead;
+
+
     }
+
+
 
     @Override
     public void hit() {
         dead = true;
         picture.delete();
-    }
 
-    public void setGrid(Grid grid) {
-        this.grid = grid;
-    }
-
-    public GridPosition getPos() {
-        return pos;
     }
 
 
@@ -93,4 +87,14 @@ public class Player extends GameObject {
     public void setCollisionDetector(CollisionDetector collisionDetector) {
         this.collisionDetector = collisionDetector;
     }
+
+    public boolean getDead() {
+        return dead;
+    }
+
+    public void setDead(boolean b){
+        this.dead=b;
+    }
+
+
 }
