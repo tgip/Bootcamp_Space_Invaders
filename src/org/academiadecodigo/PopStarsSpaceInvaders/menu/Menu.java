@@ -52,6 +52,7 @@ public class Menu implements Clickable {
                         (cursor.getPosY() >= exit.getStartY() && cursor.getPosY() <= exit.getEndY())) {
                     System.out.println("Clicked on exit");
                     clearMouse();
+                    System.exit(0);
                     // QUIT THE JVM
                 }
                 if ((cursor.getPosX() >= play.getStartX() && cursor.getPosX() <= play.getEndX()) &&
