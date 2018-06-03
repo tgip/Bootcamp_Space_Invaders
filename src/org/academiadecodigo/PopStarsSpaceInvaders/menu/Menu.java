@@ -1,7 +1,5 @@
 package org.academiadecodigo.PopStarsSpaceInvaders.menu;
 
-import org.academiadecodigo.PopStarsSpaceInvaders.Sound;
-
 public class Menu implements Clickable {
 
     private MenuEvent menuEvent;
@@ -11,19 +9,22 @@ public class Menu implements Clickable {
     private Buttons tutorial;
     private Buttons credits;
     private Buttons back;
-    private boolean startSelection;
-    private boolean secondaryMenu;
+    private boolean startSelected;
+    private boolean tutorialSelected;
+    private boolean ceditsSelected;
+    private Cursor cursor;
 
-    public Menu() throws InterruptedException {
-
+    public Menu(Cursor cursor) throws InterruptedException {
+        this.cursor=cursor;
         menuEvent = new MenuEvent();
 
         play = ButtonFactory.getNewButton(ButtonType.PLAY);
         tutorial = ButtonFactory.getNewButton(ButtonType.TUTORIAL);
         credits = ButtonFactory.getNewButton(ButtonType.CREDITS);
         back = ButtonFactory.getNewButton(ButtonType.BACK);
-        startSelection = false;
-        secondaryMenu = false;
+        startSelected = false;
+        tutorialSelected = false;
+        ceditsSelected = false;
     }
 
     private double getMouseX() {
@@ -34,68 +35,80 @@ public class Menu implements Clickable {
         return mouseY;
     }
 
-    public void selection() throws InterruptedException {
+    public void selection()  {
 
         menuEvent.soundMenu();
-        menuEvent.mainMenuLoop();
-        System.out.println("Aqui");
+        menuEvent.mainMenu();
 
-        while (!startSelection) {
-            Thread.sleep(1);
-            System.out.println("Logo no inicio");
-            if (secondaryMenu) {
+        System.out.println(cursor.getPosY()+ " "+ cursor.getPosX());
+
+            if (tutorialSelected) {
+                menuEvent.removeMenu();
+                menuEvent.tutorial();
                 System.out.println("In Secondary Menu ...");
-                if ((getMouseX() >= back.getStartX() && getMouseX() <= back.getEndX()) &&
-                        (getMouseY() >= back.getStartY() && getMouseY() <= back.getEndY())) {
+                if ((mouseX >= back.getStartX() && mouseX <= back.getEndX()) &&
+                        (mouseY >= back.getStartY() && mouseY <= back.getEndY())) {
                     System.out.println("Clicked on back");
                     menuEvent.removeCredits();
                     menuEvent.removeTutorial();
-                    Thread.sleep(200);
-                    secondaryMenu = false;
-                    mainMenu();
+
+                    tutorialSelected = false;
+
                 }
             }
-            System.out.println("passou aqui");
+
             /*
              * If the player presses start
+             *
+
              */
-            if ((getMouseX() >= play.getStartX() && getMouseX() <= play.getEndX()) &&
-                    (getMouseY() >= play.getStartY() && getMouseY() <= play.getEndY())) {
+
+        if (ceditsSelected) {
+            menuEvent.removeMenu();
+            menuEvent.removeTutorial();
+            menuEvent.credits();
+
+            if ((cursor.getPosX() >= play.getStartX() && cursor.getPosX() <= play.getEndX()) &&
+                    (cursor.getPosY() >= play.getStartY() && cursor.getPosY() <= play.getEndY())) {
+                clearMouse();
                 menuEvent.killSoundMenu();
-                startSelection = false;
+                startSelected = true;
                 System.out.println("Clicked on start");
             }
             /*
              * If the the Tutorial submenu is selected
              */
-            if ((mouseX >= tutorial.getStartX() && mouseX <= tutorial.getEndX()) &&
-                    (mouseY >= tutorial.getStartY() && mouseY <= tutorial.getEndY())) {
-                secondaryMenu = false;
-                tutorial();
-                menuEvent.removeTutorial();
+            if ((cursor.getPosY() >= tutorial.getStartX() && cursor.getPosX() <= tutorial.getEndX()) &&
+                    (cursor.getPosY() >= tutorial.getStartY() && cursor.getPosY() <= tutorial.getEndY())) {
+                clearMouse();
+                tutorialSelected = true;
+
+                menuEvent.tutorial();
+               // menuEvent.removeTutorial();
                 System.out.println("Clicked on tutorial");
             }
             /*
              * If the Credits submenu is selected
              */
-            if ((mouseX >= credits.getStartX() && mouseX <= credits.getEndX()) &&
-                    (mouseY >= credits.getStartY() && mouseY <= credits.getEndY())) {
-                secondaryMenu = false;
-                credits();
+            if ((cursor.getPosX() >= credits.getStartX() && cursor.getPosX() <= credits.getEndX()) &&
+                    (cursor.getPosY() >= credits.getStartY() && cursor.getPosY() <= credits.getEndY())) {
+
+                tutorialSelected = true;
+                //credits();
                 menuEvent.removeCredits();
                 System.out.println("Clicked on credits");
             }
 
             System.out.println("Ultima parte");
         }
-    }
+
 
     private void tutorial() { menuEvent.tutorial(); }
 
     private void credits() { menuEvent.credits(); }
 
-    private void mainMenu() throws InterruptedException{ menuEvent.mainMenuLoop();
-    }
+    private void mainMenu() { menuEvent.mainMenu(); }
+
 
     public void setX(double mouseX) {
         this.mouseX = mouseX;
@@ -111,6 +124,11 @@ public class Menu implements Clickable {
 
     public double getY(){
         return mouseY;
+    }
+
+    public void clearMouse(){
+        mouseX=0;
+        mouseY=0;
     }
 }
 

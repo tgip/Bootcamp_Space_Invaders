@@ -29,22 +29,19 @@ public class Game {
 
 
 
-    public void init() throws InterruptedException {
-        menu=new Menu();
+    public void init() {
 
 
-        cursor= new Cursor();
+        player = new Player();
 
-        MouseListener mouseListener = new MouseListener(cursor);
-        cursor.putMenu(menu);
-        menu.selection();
 
-        System.out.println(menu.getX()+ " "+menu.getY());
+        MouseListener mouseListener = new MouseListener(player);
+
+
 
 
         new Picture(10, 10, "resources/images/Stars.png").draw();
         painel = new Painel();
-        player = new Player();
 
 
 

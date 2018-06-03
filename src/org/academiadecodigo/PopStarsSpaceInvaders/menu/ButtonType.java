@@ -1,8 +1,8 @@
 package org.academiadecodigo.PopStarsSpaceInvaders.menu;
 
 public enum ButtonType {
-    PLAY( 70,630,358,730),
-    TUTORIAL(410,630,710,730),
+    PLAY( 78,665,366,748),
+    TUTORIAL(426,665,710,730),
     CREDITS(760,630,1056,730),
     BACK(1098,630,1400,730);
 
