@@ -7,7 +7,7 @@ public enum ButtonType {
     EXIT(1098,665,1400,730),
     CREDITBACK(526,665,910,730),
     BACK(366,655,710,730),
-    TUTORIALSTART(760,665,1098,665);
+    TUTORIALSTART(760,665,1400,730);
 
 
     private int startX;

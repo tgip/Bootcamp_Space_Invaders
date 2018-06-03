@@ -6,7 +6,7 @@ import java.util.List;
 
 import org.academiadecodigo.PopStarsSpaceInvaders.gameobjects.Player;
 import org.academiadecodigo.PopStarsSpaceInvaders.gameobjects.badguys.GenericBadGuy;
-import org.academiadecodigo.PopStarsSpaceInvaders.gameobjects.badguys.ImageStar;
+import org.academiadecodigo.PopStarsSpaceInvaders.gameobjects.ImageStar;
 
 public class CollisionDetector {
 
@@ -71,6 +71,9 @@ public class CollisionDetector {
         for (ImageStar eachStar : arrayStars){
             if (eachStar != null){
                 eachStar.move();
+            }
+            if(eachStar.getPosY()<=10){
+                arrayStars.clear();
             }
         }
     }

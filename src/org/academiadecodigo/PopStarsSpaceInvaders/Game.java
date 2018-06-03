@@ -1,15 +1,11 @@
 package org.academiadecodigo.PopStarsSpaceInvaders;
 
 import org.academiadecodigo.PopStarsSpaceInvaders.gameobjects.GameObject;
-import org.academiadecodigo.PopStarsSpaceInvaders.gameobjects.badguys.
-        BadGuy01;
-import org.academiadecodigo.PopStarsSpaceInvaders.gameobjects.badguys.BadGuy02;
-import org.academiadecodigo.PopStarsSpaceInvaders.gameobjects.badguys.Boss;
-import org.academiadecodigo.PopStarsSpaceInvaders.gameobjects.badguys.
-        GenericBadGuy;
+import org.academiadecodigo.PopStarsSpaceInvaders.gameobjects.badguys.*;
 import org.academiadecodigo.PopStarsSpaceInvaders.gameobjects.Player;
 import org.academiadecodigo.PopStarsSpaceInvaders.menu.Cursor;
 import org.academiadecodigo.PopStarsSpaceInvaders.menu.Menu;
+import org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 /**
@@ -17,8 +13,8 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
  */
 public class Game {
 
-    private GenericBadGuy[] badGuys = new GenericBadGuy[10];
-    private GameObject[] stars = new GameObject[10];
+    private GenericBadGuy[] badGuys = new GenericBadGuy[5];
+
     private Player player;
     private CollisionDetector collisionDetector;
     private int level = 1;
@@ -36,6 +32,8 @@ public class Game {
 
 
         MouseListener mouseListener = new MouseListener(player);
+        KeyboardListener missilLaucher= new KeyboardListener(player);
+
 
 
 
@@ -80,6 +78,7 @@ public class Game {
 
             if (allDead) {
                 level++;
+                player.setLevel(level);
                 painel.addLevel(level);
                 System.out.println("Level" + level);
                 newGame();
@@ -88,8 +87,9 @@ public class Game {
             if (player.getDead()) {
                 for (GenericBadGuy badGuy : badGuys) {
                     badGuy.hide();
-                    level = 0;
                 }
+                level = 1;
+                player.setLevel(level);
                 player.setDead(false);
                 newGame();
                 player.show();
@@ -103,22 +103,23 @@ public class Game {
 
     private void generateBadGuys() {
         int x = 10;
-        Double a;
+        Double RNGGenerator;
         for (int i = 0; i < badGuys.length; i++) {
-            a=(Double)(Math.random() * ( 1 - 0 ));
+            RNGGenerator=(Math.random());
             x = x + 120;
             if (level < 3) {
-                badGuys[i] = ((Math.random() < 0.5) ? new BadGuy01(x, 10) : new BadGuy02(x, 10));
+
+                badGuys[i] = ((Math.random() < 0.5) ? new BadGuy03(x, 10,1,0) : new BadGuy03(x, 10,1,50));
                 badGuys[i].setLevelUp(level);
             } else {
-                if(a<0.4){
-                    badGuys[i] =new BadGuy01(x, 10);
+                if(RNGGenerator<0.4){
+                    badGuys[i] =new BadGuy03(x, 10,1,0);
                     badGuys[i].setLevelUp(level);
-                }else if(a>0.4&&a<0.8){
-                    badGuys[i] =new BadGuy02(x, 10);
+                }else if(RNGGenerator>0.4&&RNGGenerator<0.8){
+                    badGuys[i] =new BadGuy03(x, 10,1,50);
                     badGuys[i].setLevelUp(level);
                 }else{
-                    badGuys[i]=new Boss(x,10);
+                    badGuys[i]=new BadGuy03(x, 10,3,50);
                     if(level<=5){
                         badGuys[i].setLevelUp(level);
                     }

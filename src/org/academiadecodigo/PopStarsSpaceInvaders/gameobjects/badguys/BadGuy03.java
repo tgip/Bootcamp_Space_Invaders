@@ -1,28 +1,26 @@
 package org.academiadecodigo.PopStarsSpaceInvaders.gameobjects.badguys;
 
 import org.academiadecodigo.PopStarsSpaceInvaders.Config;
-import org.academiadecodigo.PopStarsSpaceInvaders.Direction;
 import org.academiadecodigo.PopStarsSpaceInvaders.Shot;
 import org.academiadecodigo.PopStarsSpaceInvaders.Sound;
 import org.academiadecodigo.PopStarsSpaceInvaders.gameobjects.GameObject;
-import org.academiadecodigo.PopStarsSpaceInvaders.gameobjects.GetRndBadGuyImg;
-import org.academiadecodigo.simplegraphics.pictures.Picture;
 
-public class Boss extends GenericBadGuy  {
+public class BadGuy03 extends GenericBadGuy  {
 
     private int posY;
     private boolean isDead;
-    private int healf =2;
+    private int health =2;
     //private GetRndBadGuyImg get=new GetRndBadGuyImg();
     public static final Sound sound = new Sound("/resources/sounds/pop1.wav");
 
     private int levelUp;
 
-    public Boss(int pos_x, int pos_y) {
+    public BadGuy03(int pos_x, int pos_y, int health, int size) {
         super(pos_x, pos_y);
         this.posY=pos_y;
         isDead=false;
-        picture.grow(50,50);
+        this.health=health;
+        picture.grow(size,size);
         picture.draw();
 
     }
@@ -41,12 +39,12 @@ public class Boss extends GenericBadGuy  {
 
     @Override
     public void hit(){
-        if(healf==0) {
+        if(health==0) {
             isDead = true;
             hide();
         }else{
             sound.play(true);
-            healf--;
+            health--;
         }
     }
 
@@ -58,7 +56,7 @@ public class Boss extends GenericBadGuy  {
             return;
         }
 
-        picture.translate(0, 5+(levelUp+5));
+        picture.translate(0, (levelUp+5));
         posY += 5+(levelUp+5);
     }
 
@@ -80,7 +78,25 @@ public class Boss extends GenericBadGuy  {
 
     }
 
+    public boolean isDead() {
+        return isDead;
+    }
 
+    public void kill(boolean dead) {
+        isDead = dead;
+    }
+
+    public int getHealth() {
+        return health;
+    }
+
+    public void setHealth(int health) {
+        this.health = health;
+    }
+
+    public int getLevelUp() {
+        return levelUp;
+    }
 }
 
 

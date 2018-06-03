@@ -17,7 +17,7 @@ public class Shot extends GameObject {
     private double posX;
     private double posY;
     private static final Sound sound = new Sound("/resources/sounds/LaserShot.wav");
-
+    private int level;
 
     public Shot(double originX, double originY) {
         super(0, 0, "resources/images/potato.png");
@@ -32,8 +32,8 @@ public class Shot extends GameObject {
 
     public void move() {
         if (posY > 10) {
-            picture.translate(0, -20);
-            setPosY(getPosY() - 20);
+            picture.translate(0, -20-(level));
+            setPosY(getPosY() - 20-(level));
         }
         else {
             hide();
@@ -88,7 +88,9 @@ public class Shot extends GameObject {
         this.posY = posY;
     }
 
-
+    public void setLevelt(int a){
+        level+=a;
+    }
 
     public void setDirection(Direction direction) {
         this.direction = Direction.UP;

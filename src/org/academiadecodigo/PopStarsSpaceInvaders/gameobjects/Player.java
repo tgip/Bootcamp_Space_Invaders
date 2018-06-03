@@ -17,6 +17,7 @@ public class Player extends GameObject {
     public List<Shot> list = new LinkedList<Shot>();
     private CollisionDetector collisionDetector;
     public static final Sound sound = new Sound("/resources/sounds/FudiMe.wav");
+    private int level;
 
 
 
@@ -65,6 +66,7 @@ public class Player extends GameObject {
 
     public void shoot() {
         Shot shot = new Shot(picture.getX() + gun_pos, picture.getY());
+        shot.setLevelt(level);
         list.add(shot);
         collisionDetector.addShot(shot);
     }
@@ -95,6 +97,13 @@ public class Player extends GameObject {
 
     public void setDead(boolean b) {
         this.dead = b;
+    }
+
+    public void setLevel(int a){
+        if (a == 1) {
+            level=0;
+        }
+        this.level+=a;
     }
 
 

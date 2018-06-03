@@ -34,20 +34,15 @@ public class KeyboardListener implements KeyboardHandler {
   @Override public void keyPressed (KeyboardEvent e
   ) {
 
-    if (!active) {
+    if (active) {
       return;
     }
 
     switch (e.getKey ()) {
 	case KeyboardEvent.KEY_SPACE:
-	  player.move ();
+	  player.shoot();
 	  break;
-	case KeyboardEvent.KEY_LEFT:
-	  player.setDirection (Direction.LEFT);
-	  break;
-	case KeyboardEvent.KEY_RIGHT:
-	  player.setDirection (Direction.RIGHT);
-	  break;
+
     }
   }
 
