@@ -1,6 +1,6 @@
 package org.academiadecodigo.PopStarsSpaceInvaders.Not;
 
-import org.academiadecodigo.simplegraphics.pictures.Picture;
+/*import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class GameMap {
 
@@ -41,3 +41,4 @@ public class GameMap {
     }
 
 }
+*/

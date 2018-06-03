@@ -32,35 +32,31 @@ public class Painel {
         score.setColor(Color.WHITE);
         score.grow(10, 10);
         score.draw();
-        level=new Text(Config.PADDING * 10, Config.PADDING * 9, "1");
+        level = new Text(Config.PADDING * 10, Config.PADDING * 9, "1");
         level.setColor(Color.RED);
         level.grow(10, 10);
         level.draw();
-
-
     }
 
-
     public void addPoint(int points) {
+        // Adriano : toString = Integer.toString(points);
+        // Pedro :
+        toString = ScoreToText.intToScore(points);
         toString = Integer.toString(points);
         score.delete();
         score = new Text(Config.PADDING * 10, Config.PADDING * 4, toString);
         score.setColor(Color.WHITE);
         score.grow(10, 10);
         score.draw();
-
-
     }
 
-    public void addLevel(int levelUp){
+    public void addLevel(int levelUp) {
         toString2 = Integer.toString(levelUp);
         level.delete();
         level = new Text(Config.PADDING * 10, Config.PADDING * 9, toString2);
         level.setColor(Color.RED);
         level.grow(10, 10);
         level.draw();
-
-
     }
 }
 

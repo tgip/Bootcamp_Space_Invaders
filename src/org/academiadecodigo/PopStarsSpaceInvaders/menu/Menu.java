@@ -47,7 +47,6 @@ public class Menu implements Clickable {
                 menuEvent.removeCredits();
                 menuEvent.removeTutorial();
 
-                System.out.println(cursor.getPosX() + " " + cursor.getPosY());
                 if ((cursor.getPosX() >= exit.getStartX() && cursor.getPosX() <= exit.getEndX()) &&
                         (cursor.getPosY() >= exit.getStartY() && cursor.getPosY() <= exit.getEndY())) {
                     System.out.println("Clicked on exit");
@@ -94,7 +93,6 @@ public class Menu implements Clickable {
                 if ((cursor.getPosX() >= back.getStartX() && cursor.getPosX() <= back.getEndX()) &&
                         (cursor.getPosY() >= back.getStartY() && cursor.getPosY() <= back.getEndY())) {
                     clearMouse();
-                    System.out.println(cursor.getPosX() + " " + cursor.getPosY());
                     System.out.println("Clicked on back");
                     tutorialSelected = false;
                     mainMenuSelected = true;
