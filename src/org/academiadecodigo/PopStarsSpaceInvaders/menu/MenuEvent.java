@@ -12,6 +12,7 @@ public class MenuEvent {
     private Picture credits;
     private Sound menu;
 
+
     public MenuEvent() {
 
         this.menuBG = new Picture(0, 0, "resources/images/menu/menu1.png");
@@ -51,8 +52,8 @@ public class MenuEvent {
 
     public void soundMenu(){
         menu = new Sound ("/resources/sounds/MN84Theme.wav");
-        menu.createLoop(5);
-        menu.start(true);
+        menu.setLoop(5);
+        menu.play(true);
     }
 
     public void tutorial() { tutorial.draw(); }

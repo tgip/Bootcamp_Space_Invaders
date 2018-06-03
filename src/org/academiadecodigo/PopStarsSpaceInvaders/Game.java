@@ -8,6 +8,8 @@ import org.academiadecodigo.PopStarsSpaceInvaders.gameobjects.badguys.Boss;
 import org.academiadecodigo.PopStarsSpaceInvaders.gameobjects.badguys.
         GenericBadGuy;
 import org.academiadecodigo.PopStarsSpaceInvaders.gameobjects.Player;
+import org.academiadecodigo.PopStarsSpaceInvaders.menu.Cursor;
+import org.academiadecodigo.PopStarsSpaceInvaders.menu.Menu;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 /**
@@ -22,16 +24,28 @@ public class Game {
     private int level = 1;
     private boolean allDead;
     private Painel painel;
+    private Menu menu;
+    private Cursor cursor;
 
 
 
-    public void init() {
+    public void init() throws InterruptedException {
+        menu=new Menu();
 
 
+        cursor= new Cursor();
+
+        MouseListener mouseListener = new MouseListener(cursor);
+
+
+        menu.selection();
         new Picture(10, 10, "resources/images/Stars.png").draw();
         painel = new Painel();
         player = new Player();
-        MouseListener mouseListener = new MouseListener(player);
+
+
+
+        //MouseListener mouseListener = new MouseListener(player);
 
         generateBadGuys();
 
