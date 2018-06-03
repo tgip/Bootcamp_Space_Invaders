@@ -6,66 +6,53 @@ import org.academiadecodigo.simplegraphics.graphics.Text;
 
 public class Painel {
 
-    private String toString;
     private Rectangle rectangle;
-    private Text score;
-    private Text points;
-    private Text level1;
-    private Text level;
-    private String toString2;
-
+    private Text scoreText;
+    private Text scoreValue;
+    private Text levelText;
+    private Text levelValue;
 
     public Painel() {
         rectangle = new Rectangle(Config.PADDING, Config.PADDING, 200, 50);
-        rectangle.setColor(Color.WHITE);
+        rectangle.setColor(Color.MAGENTA);
         rectangle.draw();
 
-        points = new Text(Config.PADDING * 4, Config.PADDING * 4, "Points");
-        points.setColor(Color.WHITE);
-        points.grow(10, 10);
-        points.draw();
-        level1 = new Text(Config.PADDING * 4, Config.PADDING * 9, "Level");
-        level1.setColor(Color.WHITE);
-        level1.grow(10, 10);
-        level1.draw();
-        this.score = new Text(Config.PADDING * 10, Config.PADDING * 4, "0");
-        score.setColor(Color.WHITE);
-        score.grow(10, 10);
-        score.draw();
-        level = new Text(Config.PADDING * 10, Config.PADDING * 9, "1");
-        level.setColor(Color.RED);
-        level.grow(10, 10);
-        level.draw();
+        scoreText = new Text(Config.PADDING + 4, Config.PADDING + 4, "Score");
+        scoreText.setColor(Color.WHITE);
+        scoreText.grow(10, 10);
+        scoreText.draw();
+
+        levelText = new Text(Config.PADDING + 450, Config.PADDING + 4, "Level");
+        levelText.setColor(Color.WHITE);
+        levelText.grow(10, 10);
+        levelText.draw();
+
+        this.scoreValue = new Text(Config.PADDING + 100, Config.PADDING + 4, "0");
+        scoreValue.setColor(Color.WHITE);
+        scoreValue.grow(10, 10);
+        scoreValue.draw();
+
+        levelValue = new Text(Config.PADDING + 500, Config.PADDING * 9, "1");
+        levelValue.setColor(Color.RED);
+        levelValue.grow(10, 10);
+        levelValue.draw();
     }
 
     public void addPoint(int points) {
-        // Adriano : toString = Integer.toString(points);
-        // Pedro :
-        toString = ScoreToText.intToScore(points);
-        toString = Integer.toString(points);
-        score.delete();
-        score = new Text(Config.PADDING * 10, Config.PADDING * 4, toString);
-        score.setColor(Color.WHITE);
-        score.grow(10, 10);
-        score.draw();
+        // Adriano : toString = Integer.toString(scoreText);
+        // toString = Integer.toString(scoreText);
+        scoreValue.delete();
+        scoreValue = new Text(Config.PADDING * 10, Config.PADDING * 4, ScoreToText.intToScore(points,9));
+        scoreValue.setColor(Color.WHITE);
+        scoreValue.grow(10, 10);
+        scoreValue.draw();
     }
 
     public void addLevel(int levelUp) {
-        toString2 = Integer.toString(levelUp);
-        level.delete();
-        level = new Text(Config.PADDING * 10, Config.PADDING * 9, toString2);
-        level.setColor(Color.RED);
-        level.grow(10, 10);
-        level.draw();
+        levelValue.delete();
+        levelValue = new Text(Config.PADDING * 10, Config.PADDING * 9,  ScoreToText.intToScore(levelUp, 2));
+        levelValue.setColor(Color.RED);
+        levelValue.grow(10, 10);
+        levelValue.draw();
     }
 }
-
-
-
-
-
-
-
-
-
-
