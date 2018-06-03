@@ -36,21 +36,28 @@ public class Game {
         cursor= new Cursor();
 
         MouseListener mouseListener = new MouseListener(cursor);
+        if(cursor.getPosY()==50){
+            mouseListener= new MouseListener(player);
 
+        }
 
         menu.selection();
         new Picture(10, 10, "resources/images/Stars.png").draw();
         painel = new Painel();
         player = new Player();
 
+        if(cursor.getPosY()==50){
+            mouseListener= new MouseListener(player);
 
+        }
 
-        //MouseListener mouseListener = new MouseListener(player);
+        mouseListener = new MouseListener(player);
 
         generateBadGuys();
 
         collisionDetector = new CollisionDetector(player, badGuys);
         player.setCollisionDetector(collisionDetector);
+
     }
 
     public void start() throws InterruptedException {

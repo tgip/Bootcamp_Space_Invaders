@@ -8,7 +8,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Cursor extends GameObject  {
-
+    private Menu menu;
     private double posX;
 
     private double posY;
@@ -42,11 +42,19 @@ public class Cursor extends GameObject  {
             posX = x;
             posY = y;
 
+
         }
 
         public void click(double x,double y) {
-            this.posX=x;
-            this.posY=y;
+          try {
+              this.posX = x;
+              this.posY = y;
+              menu = new Menu();
+              menu.setX(x);
+              menu.setY(y);
+          }catch (InterruptedException e){
+              System.out.println("Está dando merda!");
+          }
 
         }
 

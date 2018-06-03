@@ -3,8 +3,8 @@ package org.academiadecodigo.PopStarsSpaceInvaders.menu;
 public class Menu implements Clickable {
 
     private MenuEvent menuEvent;
-    private int mouseX;
-    private int mouseY;
+    private double mouseX;
+    private double mouseY;
     private Buttons play;
     private Buttons tutorial;
     private Buttons credits;
@@ -24,11 +24,11 @@ public class Menu implements Clickable {
         secondaryMenu = false;
     }
 
-    private int getMouseX() {
+    private double getMouseX() {
         return mouseX;
     }
 
-    private int getMouseY() {
+    private double getMouseY() {
         return mouseY;
     }
 
@@ -91,11 +91,11 @@ public class Menu implements Clickable {
     private void mainMenu() throws InterruptedException{ menuEvent.mainMenuLoop(5);
     }
 
-    public void setX(int mouseX) {
+    public void setX(double mouseX) {
         this.mouseX = mouseX;
     }
 
-    public void setY(int mouseY) {
+    public void setY(double mouseY) {
         this.mouseY = mouseY;
     }
 }
