@@ -9,22 +9,134 @@ public class Menu implements Clickable {
     private Buttons tutorial;
     private Buttons credits;
     private Buttons back;
+    private Buttons creditback;
+    private Buttons tuturialStart;
+    private Buttons exit;
     private boolean startSelected;
     private boolean tutorialSelected;
-    private boolean ceditsSelected;
+    private boolean creditsSelected;
+    private boolean mainMenuSelected;
     private Cursor cursor;
 
-    public Menu(Cursor cursor) throws InterruptedException {
-        this.cursor=cursor;
+    public Menu(Cursor cursor){
+        this.cursor = cursor;
         menuEvent = new MenuEvent();
-
+        tuturialStart=ButtonFactory.getNewButton(ButtonType.TUTORIALSTART);
         play = ButtonFactory.getNewButton(ButtonType.PLAY);
         tutorial = ButtonFactory.getNewButton(ButtonType.TUTORIAL);
         credits = ButtonFactory.getNewButton(ButtonType.CREDITS);
+        creditback = ButtonFactory.getNewButton(ButtonType.CREDITBACK);
         back = ButtonFactory.getNewButton(ButtonType.BACK);
+        exit = ButtonFactory.getNewButton(ButtonType.EXIT);
+        mainMenuSelected = true;
         startSelected = false;
         tutorialSelected = false;
-        ceditsSelected = false;
+        creditsSelected = false;
+
+    }
+
+    public void selection() {
+
+        menuEvent.soundMenu();
+
+        while (!startSelected) {
+            // selectedMenu = Main / Credits / Tutorial
+
+            if (mainMenuSelected) {
+                menuEvent.mainMenu();
+                menuEvent.removeCredits();
+                menuEvent.removeTutorial();
+
+                System.out.println(cursor.getPosX() + " " + cursor.getPosY());
+                if ((cursor.getPosX() >= exit.getStartX() && cursor.getPosX() <= exit.getEndX()) &&
+                        (cursor.getPosY() >= exit.getStartY() && cursor.getPosY() <= exit.getEndY())) {
+                    System.out.println("Clicked on exit");
+                    clearMouse();
+                    // QUIT THE JVM
+                }
+                if ((cursor.getPosX() >= play.getStartX() && cursor.getPosX() <= play.getEndX()) &&
+                        (cursor.getPosY() >= play.getStartY() && cursor.getPosY() <= play.getEndY())) {
+                    System.out.println("Clicked on start");
+                    clearMouse();
+                    startSelected=true;
+                    //tutorialSelected = false;
+                    //startSelected = true;
+
+                }
+                if ((cursor.getPosX() >= tutorial.getStartX() && cursor.getPosX() <= tutorial.getEndX()) &&
+                        (cursor.getPosY() >= tutorial.getStartY() && cursor.getPosY() <= tutorial.getEndY())) {
+                    System.out.println("Clicked on tutorial");
+
+                    tutorialSelected = true;
+                    mainMenuSelected = false;
+                    creditsSelected=false;
+                    clearMouse();
+
+                    // startSelected=false;
+
+                }
+                if ((cursor.getPosX() >= credits.getStartX() && cursor.getPosX() <= credits.getEndX()) &&
+                        (cursor.getPosY() >= credits.getStartY() && cursor.getPosY() <= credits.getEndY())) {
+                    System.out.println("Clicked on credits");
+                    clearMouse();
+                    creditsSelected = true;
+                    mainMenuSelected = false;
+                    tutorialSelected=false;
+
+                }
+            }
+
+            if (tutorialSelected) {
+                menuEvent.tutorial();
+                menuEvent.removeMenu();
+
+                if ((cursor.getPosX() >= back.getStartX() && cursor.getPosX() <= back.getEndX()) &&
+                        (cursor.getPosY() >= back.getStartY() && cursor.getPosY() <= back.getEndY())) {
+                    clearMouse();
+                    System.out.println(cursor.getPosX() + " " + cursor.getPosY());
+                    System.out.println("Clicked on back");
+                    tutorialSelected = false;
+                    mainMenuSelected = true;
+                }
+                if ((cursor.getPosX() >= tuturialStart.getStartX() && cursor.getPosX() <= tuturialStart.getEndX()) &&
+                        (cursor.getPosY() >= tuturialStart.getStartY() && cursor.getPosY() <= tuturialStart.getEndY())) {
+                    clearMouse();
+                    System.out.println("Clicked on start");
+                    System.out.println(cursor.getPosX() + " " + cursor.getPosY());
+                    tutorialSelected = false;
+                    startSelected = true;
+                }
+            }
+
+            if (creditsSelected) {
+                menuEvent.removeMenu();
+                menuEvent.credits();
+                System.out.println("In credits Menu ...");
+                if ((cursor.getPosX() >= creditback.getStartX() && cursor.getPosX() <= creditback.getEndX()) &&
+                        (cursor.getPosY() >= creditback.getStartY() && cursor.getPosY() <= creditback.getEndY())) {
+                    clearMouse();
+                    mainMenuSelected = true;
+                    creditsSelected = false;
+
+                }
+            }
+        }
+    }
+
+    public void setX ( double mouseX){
+        this.mouseX = mouseX;
+    }
+
+    public void setY ( double mouseY){
+        this.mouseY = mouseY;
+    }
+
+    public double getX () {
+        return mouseX;
+    }
+
+    public double getY () {
+        return mouseY;
     }
 
     private double getMouseX() {
@@ -35,100 +147,9 @@ public class Menu implements Clickable {
         return mouseY;
     }
 
-    public void selection()  {
-
-        menuEvent.soundMenu();
-        menuEvent.mainMenu();
-
-        System.out.println(cursor.getPosY()+ " "+ cursor.getPosX());
-
-            if (tutorialSelected) {
-                menuEvent.removeMenu();
-                menuEvent.tutorial();
-                System.out.println("In Secondary Menu ...");
-                if ((mouseX >= back.getStartX() && mouseX <= back.getEndX()) &&
-                        (mouseY >= back.getStartY() && mouseY <= back.getEndY())) {
-                    System.out.println("Clicked on back");
-                    menuEvent.removeCredits();
-                    menuEvent.removeTutorial();
-
-                    tutorialSelected = false;
-
-                }
-            }
-
-            /*
-             * If the player presses start
-             *
-
-             */
-
-        if (ceditsSelected) {
-            menuEvent.removeMenu();
-            menuEvent.removeTutorial();
-            menuEvent.credits();
-
-            if ((cursor.getPosX() >= play.getStartX() && cursor.getPosX() <= play.getEndX()) &&
-                    (cursor.getPosY() >= play.getStartY() && cursor.getPosY() <= play.getEndY())) {
-                clearMouse();
-                menuEvent.killSoundMenu();
-                startSelected = true;
-                System.out.println("Clicked on start");
-            }
-            /*
-             * If the the Tutorial submenu is selected
-             */
-            if ((cursor.getPosY() >= tutorial.getStartX() && cursor.getPosX() <= tutorial.getEndX()) &&
-                    (cursor.getPosY() >= tutorial.getStartY() && cursor.getPosY() <= tutorial.getEndY())) {
-                clearMouse();
-                tutorialSelected = true;
-
-                menuEvent.tutorial();
-               // menuEvent.removeTutorial();
-                System.out.println("Clicked on tutorial");
-            }
-            /*
-             * If the Credits submenu is selected
-             */
-            if ((cursor.getPosX() >= credits.getStartX() && cursor.getPosX() <= credits.getEndX()) &&
-                    (cursor.getPosY() >= credits.getStartY() && cursor.getPosY() <= credits.getEndY())) {
-
-                tutorialSelected = true;
-                //credits();
-                menuEvent.removeCredits();
-                System.out.println("Clicked on credits");
-            }
-
-            System.out.println("Ultima parte");
-        }
-
-
-    private void tutorial() { menuEvent.tutorial(); }
-
-    private void credits() { menuEvent.credits(); }
-
-    private void mainMenu() { menuEvent.mainMenu(); }
-
-
-    public void setX(double mouseX) {
-        this.mouseX = mouseX;
-    }
-
-    public void setY(double mouseY) {
-        this.mouseY = mouseY;
-    }
-
-    public double getX(){
-        return mouseX;
-    }
-
-    public double getY(){
-        return mouseY;
-    }
-
-    public void clearMouse(){
-        mouseX=0;
-        mouseY=0;
+    public void clearMouse () {
+        cursor.resetPosX();
+        cursor.resetPosy();
     }
 }
 

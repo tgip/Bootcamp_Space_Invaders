@@ -12,7 +12,7 @@ public class Launcher {
 
     menunChoice.init();
     menunChoice.start();
-   // game.init();
-    //game.start();
+    game.init();
+    game.start();
   }
 }

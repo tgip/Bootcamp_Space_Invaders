@@ -12,7 +12,7 @@ public class MenunChoice {
     private Menu menu;
     private int r=0;
 
-    public void init() throws InterruptedException {
+    public void init(){
 
 
        cursor = new Cursor();

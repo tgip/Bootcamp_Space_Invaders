@@ -40,6 +40,13 @@ public class Cursor  {
         return posY;
     }
 
+    public void resetPosX(){
+            this.posX=0;
+    }
+    public void resetPosy(){
+            this.posY=0;
+    }
+
 
     }
 
