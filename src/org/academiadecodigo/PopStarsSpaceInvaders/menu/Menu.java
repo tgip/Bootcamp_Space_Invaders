@@ -1,5 +1,7 @@
 package org.academiadecodigo.PopStarsSpaceInvaders.menu;
 
+import org.academiadecodigo.PopStarsSpaceInvaders.Sound;
+
 public class Menu implements Clickable {
 
     private MenuEvent menuEvent;
@@ -35,10 +37,12 @@ public class Menu implements Clickable {
     public void selection() throws InterruptedException {
 
         menuEvent.soundMenu();
-        menuEvent.mainMenuLoop(5);
+        menuEvent.mainMenuLoop();
+        System.out.println("Aqui");
 
         while (!startSelection) {
             Thread.sleep(1);
+            System.out.println("Logo no inicio");
             if (secondaryMenu) {
                 System.out.println("In Secondary Menu ...");
                 if ((getMouseX() >= back.getStartX() && getMouseX() <= back.getEndX()) &&
@@ -51,14 +55,14 @@ public class Menu implements Clickable {
                     mainMenu();
                 }
             }
-
+            System.out.println("passou aqui");
             /*
              * If the player presses start
              */
             if ((getMouseX() >= play.getStartX() && getMouseX() <= play.getEndX()) &&
                     (getMouseY() >= play.getStartY() && getMouseY() <= play.getEndY())) {
                 menuEvent.killSoundMenu();
-                startSelection = true;
+                startSelection = false;
                 System.out.println("Clicked on start");
             }
             /*
@@ -66,7 +70,7 @@ public class Menu implements Clickable {
              */
             if ((mouseX >= tutorial.getStartX() && mouseX <= tutorial.getEndX()) &&
                     (mouseY >= tutorial.getStartY() && mouseY <= tutorial.getEndY())) {
-                secondaryMenu = true;
+                secondaryMenu = false;
                 tutorial();
                 menuEvent.removeTutorial();
                 System.out.println("Clicked on tutorial");
@@ -76,11 +80,13 @@ public class Menu implements Clickable {
              */
             if ((mouseX >= credits.getStartX() && mouseX <= credits.getEndX()) &&
                     (mouseY >= credits.getStartY() && mouseY <= credits.getEndY())) {
-                secondaryMenu = true;
+                secondaryMenu = false;
                 credits();
                 menuEvent.removeCredits();
                 System.out.println("Clicked on credits");
             }
+
+            System.out.println("Ultima parte");
         }
     }
 
@@ -88,7 +94,7 @@ public class Menu implements Clickable {
 
     private void credits() { menuEvent.credits(); }
 
-    private void mainMenu() throws InterruptedException{ menuEvent.mainMenuLoop(5);
+    private void mainMenu() throws InterruptedException{ menuEvent.mainMenuLoop();
     }
 
     public void setX(double mouseX) {
@@ -98,4 +104,14 @@ public class Menu implements Clickable {
     public void setY(double mouseY) {
         this.mouseY = mouseY;
     }
+
+    public double getX(){
+        return mouseX;
+    }
+
+    public double getY(){
+        return mouseY;
+    }
 }
+
+

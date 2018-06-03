@@ -51,7 +51,7 @@ public class MouseListener implements MouseHandler {
     public void mouseClicked(MouseEvent e) {
         if (state) {
             cursor.click(e.getX(), e.getY());
-            System.out.println("Herr");
+            System.out.println(e.getX()+" "+e.getY());
         } else {
             System.out.println("Here");
             player.shoot();
@@ -62,7 +62,6 @@ public class MouseListener implements MouseHandler {
     public void mouseMoved(MouseEvent e) {
         if(state) {
             cursor.move((e.getX()), e.getY());
-            System.out.println(e.getX() +" "+ e.getY());
         }else {
             x_pos = (int) e.getX();
             player.move(x_pos, (Config.BOARD_HEIGHT - Config.playerIcon_HEIGHT));

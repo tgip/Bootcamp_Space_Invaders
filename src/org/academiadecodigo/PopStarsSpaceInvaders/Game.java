@@ -36,22 +36,18 @@ public class Game {
         cursor= new Cursor();
 
         MouseListener mouseListener = new MouseListener(cursor);
-        if(cursor.getPosY()==50){
-            mouseListener= new MouseListener(player);
-
-        }
-
+        cursor.putMenu(menu);
         menu.selection();
+
+        System.out.println(menu.getX()+ " "+menu.getY());
+
+
         new Picture(10, 10, "resources/images/Stars.png").draw();
         painel = new Painel();
         player = new Player();
 
-        if(cursor.getPosY()==50){
-            mouseListener= new MouseListener(player);
 
-        }
 
-        mouseListener = new MouseListener(player);
 
         generateBadGuys();
 

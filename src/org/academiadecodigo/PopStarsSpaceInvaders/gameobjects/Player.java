@@ -56,7 +56,6 @@ public class Player extends GameObject {
 
     }
 
-
     public void move(double x, double y) {
         picture.translate(x - posX, y - posY);
         posX = x;

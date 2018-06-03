@@ -21,7 +21,7 @@ public class MenuEvent {
         this.credits = new Picture(0,0, "resources/images/menu/credits.png");
     }
 
-    public void mainMenuLoop(int menuLoops) throws  InterruptedException {
+    public void mainMenuLoop() throws  InterruptedException {
 
         while (menuLoops > 0) {
 
