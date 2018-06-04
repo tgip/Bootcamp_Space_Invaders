@@ -72,9 +72,6 @@ public class CollisionDetector {
             if (eachStar != null){
                 eachStar.move();
             }
-            if(eachStar.getPosY()<=10){
-                arrayStars.clear();
-            }
         }
     }
 

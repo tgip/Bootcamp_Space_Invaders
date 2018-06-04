@@ -17,23 +17,23 @@ public class Painel {
         rectangle.setColor(Color.MAGENTA);
         rectangle.draw();
 
-        scoreText = new Text(Config.PADDING + 4, Config.PADDING + 4, "Score");
+        scoreText = new Text(Config.PADDING * 4, Config.PADDING * 4, "Score");
         scoreText.setColor(Color.WHITE);
         scoreText.grow(10, 10);
         scoreText.draw();
 
-        levelText = new Text(Config.PADDING + 450, Config.PADDING + 4, "Level");
+        levelText = new Text(Config.PADDING + 450, Config.PADDING * 4, "Level");
         levelText.setColor(Color.WHITE);
         levelText.grow(10, 10);
         levelText.draw();
 
-        this.scoreValue = new Text(Config.PADDING + 100, Config.PADDING + 4, "0");
+        this.scoreValue = new Text(Config.PADDING + 100, Config.PADDING + 4, "00");
         scoreValue.setColor(Color.WHITE);
         scoreValue.grow(10, 10);
         scoreValue.draw();
 
-        levelValue = new Text(Config.PADDING + 500, Config.PADDING * 9, "1");
-        levelValue.setColor(Color.RED);
+        levelValue = new Text(Config.PADDING + 550, Config.PADDING * 4, "01");
+        levelValue.setColor(Color.WHITE);
         levelValue.grow(10, 10);
         levelValue.draw();
     }
@@ -50,8 +50,8 @@ public class Painel {
 
     public void addLevel(int levelUp) {
         levelValue.delete();
-        levelValue = new Text(Config.PADDING * 10, Config.PADDING * 9,  ScoreToText.intToScore(levelUp, 2));
-        levelValue.setColor(Color.RED);
+        levelValue = new Text(Config.PADDING + 550, Config.PADDING * 4,  ScoreToText.intToScore(levelUp, 2));
+        levelValue.setColor(Color.WHITE);
         levelValue.grow(10, 10);
         levelValue.draw();
     }

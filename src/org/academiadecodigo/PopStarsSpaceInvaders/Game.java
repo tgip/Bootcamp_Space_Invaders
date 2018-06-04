@@ -13,7 +13,7 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
  */
 public class Game {
 
-    private GenericBadGuy[] badGuys = new GenericBadGuy[5];
+    private GenericBadGuy[] badGuys = new GenericBadGuy[10];
 
     private Player player;
     private CollisionDetector collisionDetector;

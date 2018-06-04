@@ -11,7 +11,7 @@ public class ImageStar {
     public ImageStar(int x, int y) {
             this.posX=x;
             this.posY=y;
-            picStar = new StarFactory().makeStar();
+            picStar = new Picture(x,y,"resources/images/Star.png");
             picStar.draw();
     }
 
