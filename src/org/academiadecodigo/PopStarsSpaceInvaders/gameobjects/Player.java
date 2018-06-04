@@ -1,12 +1,13 @@
 package org.academiadecodigo.PopStarsSpaceInvaders.gameobjects;
 
 import org.academiadecodigo.PopStarsSpaceInvaders.*;
+import org.academiadecodigo.simplegraphics.mouse.MouseEvent;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 import java.util.LinkedList;
 import java.util.List;
 
-public class Player extends GameObject {
+public class Player extends GameObject implements MouseUser{
 
     private boolean dead;
     //  private int directionChangeLevel = 8;
@@ -107,4 +108,20 @@ public class Player extends GameObject {
     }
 
 
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        shoot();
+    }
+
+    @Override
+    public void mouseMoved(MouseEvent e) {
+        int x_pos = (int) e.getX();
+        move(x_pos, (Config.BOARD_HEIGHT - Config.playerIcon_HEIGHT));
+
+        if (x_pos > (Config.BOARD_WIDTH - Config.playerIcon_WIDTH + 10)) {
+            x_pos = Config.BOARD_WIDTH - Config.playerIcon_WIDTH + 10;
+        } else if (x_pos < 10) {
+            x_pos = 10;
+        }
+    }
 }

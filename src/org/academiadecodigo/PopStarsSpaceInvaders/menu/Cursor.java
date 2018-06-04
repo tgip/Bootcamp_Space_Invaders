@@ -3,11 +3,12 @@ package org.academiadecodigo.PopStarsSpaceInvaders.menu;
 import org.academiadecodigo.PopStarsSpaceInvaders.*;
 import org.academiadecodigo.PopStarsSpaceInvaders.gameobjects.GameObject;
 import org.academiadecodigo.PopStarsSpaceInvaders.gameobjects.GetRndPlayerImg;
+import org.academiadecodigo.simplegraphics.mouse.MouseEvent;
 
 import java.util.LinkedList;
 import java.util.List;
 
-public class Cursor  {
+public class Cursor implements MouseUser {
      private double posX;
 
     private double posY;
@@ -48,5 +49,14 @@ public class Cursor  {
     }
 
 
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        click(e.getX(), e.getY());
     }
+
+    @Override
+    public void mouseMoved(MouseEvent e) {
+
+    }
+}
 

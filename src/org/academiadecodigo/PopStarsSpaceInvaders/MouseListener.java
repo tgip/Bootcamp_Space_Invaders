@@ -17,17 +17,13 @@ public class MouseListener implements MouseHandler {
             MouseEventType.MOUSE_CLICKED,
             MouseEventType.MOUSE_MOVED
     };
-    private Cursor cursor;
-    private Menu menu;
-    private Player player;
-    private int x_pos;
-    private boolean state;
+    private MouseUser user;
 
 
-    public MouseListener(Cursor cursor) {
-        this.cursor= cursor;
 
-        state=true;
+    public MouseListener(MouseUser user) {
+        this.user = user;
+
         Mouse event = new Mouse(this);
 
         for (MouseEventType eventType : ourMouseEvents) {
@@ -37,41 +33,23 @@ public class MouseListener implements MouseHandler {
 
     }
 
-    public MouseListener(Player player) {
-        this.player = player;
-        state=false;
-        Mouse event = new Mouse(this);
-
-        for (MouseEventType eventType : ourMouseEvents) {
-            event.addEventListener(eventType);
-        }
-    }
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        if (state) {
-            cursor.click(e.getX(), e.getY());
-        } else {
-            player.shoot();
-        }
+        user.mouseClicked(e);
+
     }
 
     @Override
     public void mouseMoved(MouseEvent e) {
-        if(state) {
-
-        }else {
-            x_pos = (int) e.getX();
-            player.move(x_pos, (Config.BOARD_HEIGHT - Config.playerIcon_HEIGHT));
-
-            if (x_pos > (Config.BOARD_WIDTH - Config.playerIcon_WIDTH + 10)) {
-                x_pos = Config.BOARD_WIDTH - Config.playerIcon_WIDTH + 10;
-            } else if (x_pos < 10) {
-                x_pos = 10;
-            }
-        }
+        user.mouseMoved(e);
 
     }
+
+
+    public void SetMouseUser(MouseUser user) {
+        this.user = user;
     }
+}
 
 
