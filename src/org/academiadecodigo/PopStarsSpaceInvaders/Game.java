@@ -99,8 +99,6 @@ public class Game {
             }
         }
     }
-
-
     private void generateBadGuys() {
         int x = 10;
         Double RNGGenerator;
@@ -141,7 +139,6 @@ public class Game {
 
         }
     }
-
     public void newGame() {
 
         generateBadGuys();
