@@ -1,25 +1,20 @@
 package org.academiadecodigo.PopStarsSpaceInvaders;
 
-import java.util.LinkedList;
-import java.util.List;
-
-
+import org.academiadecodigo.PopStarsSpaceInvaders.gameobjects.ImageStar;
 import org.academiadecodigo.PopStarsSpaceInvaders.gameobjects.Player;
 import org.academiadecodigo.PopStarsSpaceInvaders.gameobjects.badguys.GenericBadGuy;
-import org.academiadecodigo.PopStarsSpaceInvaders.gameobjects.ImageStar;
+
+import java.util.LinkedList;
+import java.util.List;
 
 public class CollisionDetector {
 
     private Player player;
     private GenericBadGuy[] badGuys;
-    private List<Shot> shots;
+    private final List<Shot> shots;
     private ImageStar starImage;
     private LinkedList<ImageStar> arrayStars = new LinkedList<>();
-
-
     private int points;
-
-
 
     public CollisionDetector(Player player, GenericBadGuy[] badGuys) {
         this.player = player;
@@ -33,18 +28,15 @@ public class CollisionDetector {
         }
     }
 
-
     public void collide() {
         moveStars();
         for (GenericBadGuy badGuy : badGuys) {
             if (badGuy.isDestroyed()) {
                 continue;
             }
-
             if (player.overlaps(badGuy)|| badGuy.getPosY() > (Config.BOARD_HEIGHT - Config.playerIcon_HEIGHT*2)) {
                 player.hit();
             }
-
             synchronized (shots) {
 
                 for (Shot shot : shots) {
@@ -61,13 +53,14 @@ public class CollisionDetector {
         }
     }
 
-    public void reset(GenericBadGuy[] badGuys) {
+    private void reset(GenericBadGuy[] badGuys) {
         this.badGuys = badGuys;
         synchronized (shots) {
             shots.clear();
         }
     }
-    public void moveStars(){
+
+    private void moveStars() {
         for (ImageStar eachStar : arrayStars){
             if (eachStar != null){
                 eachStar.move();
@@ -75,16 +68,15 @@ public class CollisionDetector {
         }
     }
 
-    public void addStar(ImageStar star){
+    private void addStar(ImageStar star) {
         arrayStars.add(star);
     }
 
-    public int getPoints() {
+    private int getPoints() {
         return points;
     }
-    public void setPoints(int points) {
+
+    private void setPoints(int points) {
         this.points = points;
     }
-
-
 }

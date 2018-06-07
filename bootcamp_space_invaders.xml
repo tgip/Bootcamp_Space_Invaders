@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="bootcamp_space_invaders" default="all">
+
+
+    <property file="bootcamp_space_invaders.properties"/>
+    <!-- Uncomment the following property if no tests compilation is needed -->
+    <!--
+    <property name="skip.tests" value="true"/>
+     -->
+
+    <!-- Compiler options -->
+
+    <property name="compiler.debug" value="on"/>
+    <property name="compiler.generate.no.warnings" value="off"/>
+    <property name="compiler.args" value=""/>
+    <property name="compiler.max.memory" value="700m"/>
+    <patternset id="ignored.files">
+        <exclude name="**/*.hprof/**"/>
+        <exclude name="**/*.pyc/**"/>
+        <exclude name="**/*.pyo/**"/>
+        <exclude name="**/*.rbc/**"/>
+        <exclude name="**/*.yarb/**"/>
+        <exclude name="**/*~/**"/>
+        <exclude name="**/.DS_Store/**"/>
+        <exclude name="**/.git/**"/>
+        <exclude name="**/.hg/**"/>
+        <exclude name="**/.svn/**"/>
+        <exclude name="**/CVS/**"/>
+        <exclude name="**/__pycache__/**"/>
+        <exclude name="**/_svn/**"/>
+        <exclude name="**/vssver.scc/**"/>
+        <exclude name="**/vssver2.scc/**"/>
+    </patternset>
+    <patternset id="library.patterns">
+        <include name="*.war"/>
+        <include name="*.swc"/>
+        <include name="*.apk"/>
+        <include name="*.zip"/>
+        <include name="*.egg"/>
+        <include name="*.ane"/>
+        <include name="*.jar"/>
+        <include name="*.ear"/>
+    </patternset>
+    <patternset id="compiler.resources">
+        <exclude name="**/?*.java"/>
+        <exclude name="**/?*.form"/>
+        <exclude name="**/?*.class"/>
+        <exclude name="**/?*.groovy"/>
+        <exclude name="**/?*.scala"/>
+        <exclude name="**/?*.flex"/>
+        <exclude name="**/?*.kt"/>
+        <exclude name="**/?*.clj"/>
+        <exclude name="**/?*.aj"/>
+    </patternset>
+
+    <!-- JDK definitions -->
+
+    <property name="jdk.bin.10" value="${jdk.home.10}/bin"/>
+    <path id="jdk.classpath.10">
+        <fileset dir="${jdk.home.10}">
+            <include name="../java-10-oracle!/java.activation"/>
+            <include name="../java-10-oracle!/java.base"/>
+            <include name="../java-10-oracle!/java.compiler"/>
+            <include name="../java-10-oracle!/java.corba"/>
+            <include name="../java-10-oracle!/java.datatransfer"/>
+            <include name="../java-10-oracle!/java.desktop"/>
+            <include name="../java-10-oracle!/java.instrument"/>
+            <include name="../java-10-oracle!/java.jnlp"/>
+            <include name="../java-10-oracle!/java.logging"/>
+            <include name="../java-10-oracle!/java.management"/>
+            <include name="../java-10-oracle!/java.management.rmi"/>
+            <include name="../java-10-oracle!/java.naming"/>
+            <include name="../java-10-oracle!/java.prefs"/>
+            <include name="../java-10-oracle!/java.rmi"/>
+            <include name="../java-10-oracle!/java.scripting"/>
+            <include name="../java-10-oracle!/java.se"/>
+            <include name="../java-10-oracle!/java.se.ee"/>
+            <include name="../java-10-oracle!/java.security.jgss"/>
+            <include name="../java-10-oracle!/java.security.sasl"/>
+            <include name="../java-10-oracle!/java.smartcardio"/>
+            <include name="../java-10-oracle!/java.sql"/>
+            <include name="../java-10-oracle!/java.sql.rowset"/>
+            <include name="../java-10-oracle!/java.transaction"/>
+            <include name="../java-10-oracle!/java.xml"/>
+            <include name="../java-10-oracle!/java.xml.bind"/>
+            <include name="../java-10-oracle!/java.xml.crypto"/>
+            <include name="../java-10-oracle!/java.xml.ws"/>
+            <include name="../java-10-oracle!/java.xml.ws.annotation"/>
+            <include name="../java-10-oracle!/javafx.base"/>
+            <include name="../java-10-oracle!/javafx.controls"/>
+            <include name="../java-10-oracle!/javafx.deploy"/>
+            <include name="../java-10-oracle!/javafx.fxml"/>
+            <include name="../java-10-oracle!/javafx.graphics"/>
+            <include name="../java-10-oracle!/javafx.media"/>
+            <include name="../java-10-oracle!/javafx.swing"/>
+            <include name="../java-10-oracle!/javafx.web"/>
+            <include name="../java-10-oracle!/jdk.accessibility"/>
+            <include name="../java-10-oracle!/jdk.aot"/>
+            <include name="../java-10-oracle!/jdk.attach"/>
+            <include name="../java-10-oracle!/jdk.charsets"/>
+            <include name="../java-10-oracle!/jdk.compiler"/>
+            <include name="../java-10-oracle!/jdk.crypto.cryptoki"/>
+            <include name="../java-10-oracle!/jdk.crypto.ec"/>
+            <include name="../java-10-oracle!/jdk.deploy"/>
+            <include name="../java-10-oracle!/jdk.deploy.controlpanel"/>
+            <include name="../java-10-oracle!/jdk.dynalink"/>
+            <include name="../java-10-oracle!/jdk.editpad"/>
+            <include name="../java-10-oracle!/jdk.hotspot.agent"/>
+            <include name="../java-10-oracle!/jdk.httpserver"/>
+            <include name="../java-10-oracle!/jdk.incubator.httpclient"/>
+            <include name="../java-10-oracle!/jdk.internal.ed"/>
+            <include name="../java-10-oracle!/jdk.internal.jvmstat"/>
+            <include name="../java-10-oracle!/jdk.internal.le"/>
+            <include name="../java-10-oracle!/jdk.internal.opt"/>
+            <include name="../java-10-oracle!/jdk.internal.vm.ci"/>
+            <include name="../java-10-oracle!/jdk.internal.vm.compiler"/>
+            <include name="../java-10-oracle!/jdk.internal.vm.compiler.management"/>
+            <include name="../java-10-oracle!/jdk.jartool"/>
+            <include name="../java-10-oracle!/jdk.javadoc"/>
+            <include name="../java-10-oracle!/jdk.javaws"/>
+            <include name="../java-10-oracle!/jdk.jcmd"/>
+            <include name="../java-10-oracle!/jdk.jconsole"/>
+            <include name="../java-10-oracle!/jdk.jdeps"/>
+            <include name="../java-10-oracle!/jdk.jdi"/>
+            <include name="../java-10-oracle!/jdk.jdwp.agent"/>
+            <include name="../java-10-oracle!/jdk.jfr"/>
+            <include name="../java-10-oracle!/jdk.jlink"/>
+            <include name="../java-10-oracle!/jdk.jshell"/>
+            <include name="../java-10-oracle!/jdk.jsobject"/>
+            <include name="../java-10-oracle!/jdk.jstatd"/>
+            <include name="../java-10-oracle!/jdk.localedata"/>
+            <include name="../java-10-oracle!/jdk.management"/>
+            <include name="../java-10-oracle!/jdk.management.agent"/>
+            <include name="../java-10-oracle!/jdk.management.cmm"/>
+            <include name="../java-10-oracle!/jdk.management.jfr"/>
+            <include name="../java-10-oracle!/jdk.management.resource"/>
+            <include name="../java-10-oracle!/jdk.naming.dns"/>
+            <include name="../java-10-oracle!/jdk.naming.rmi"/>
+            <include name="../java-10-oracle!/jdk.net"/>
+            <include name="../java-10-oracle!/jdk.pack"/>
+            <include name="../java-10-oracle!/jdk.packager"/>
+            <include name="../java-10-oracle!/jdk.packager.services"/>
+            <include name="../java-10-oracle!/jdk.plugin"/>
+            <include name="../java-10-oracle!/jdk.plugin.server"/>
+            <include name="../java-10-oracle!/jdk.rmic"/>
+            <include name="../java-10-oracle!/jdk.scripting.nashorn"/>
+            <include name="../java-10-oracle!/jdk.scripting.nashorn.shell"/>
+            <include name="../java-10-oracle!/jdk.sctp"/>
+            <include name="../java-10-oracle!/jdk.security.auth"/>
+            <include name="../java-10-oracle!/jdk.security.jgss"/>
+            <include name="../java-10-oracle!/jdk.snmp"/>
+            <include name="../java-10-oracle!/jdk.unsupported"/>
+            <include name="../java-10-oracle!/jdk.xml.bind"/>
+            <include name="../java-10-oracle!/jdk.xml.dom"/>
+            <include name="../java-10-oracle!/jdk.xml.ws"/>
+            <include name="../java-10-oracle!/jdk.zipfs"/>
+            <include name="../java-10-oracle!/oracle.desktop"/>
+            <include name="../java-10-oracle!/oracle.net"/>
+        </fileset>
+    </path>
+
+    <property name="project.jdk.home" value="${jdk.home.10}"/>
+    <property name="project.jdk.bin" value="${jdk.bin.10}"/>
+    <property name="project.jdk.classpath" value="jdk.classpath.10"/>
+
+
+    <!-- Project Libraries -->
+
+    <path id="library.simplegraphics.classpath">
+        <pathelement location="${basedir}/lib/simplegraphics.jar"/>
+    </path>
+    <!-- Register Custom Compiler Taskdefs -->
+    <property name="javac2.home" value="${idea.home}/lib"/>
+    <path id="javac2.classpath">
+        <fileset dir="${javac2.home}">
+            <include name="javac2.jar"/>
+            <include name="jdom.jar"/>
+            <include name="asm-all*.jar"/>
+            <include name="jgoodies-forms.jar"/>
+        </fileset>
+    </path>
+    <target name="register.custom.compilers">
+        <taskdef name="javac2" classname="com.intellij.ant.Javac2" classpathref="javac2.classpath"/>
+        <taskdef name="instrumentIdeaExtensions" classname="com.intellij.ant.InstrumentIdeaExtensions"
+                 classpathref="javac2.classpath"/>
+    </target>
+
+    <!-- Modules -->
+
+
+    <!-- Module Bootcamp_Space_Invaders -->
+
+    <dirname property="module.bootcamp_space_invaders.basedir" file="${ant.file}"/>
+
+
+    <property name="module.jdk.home.bootcamp_space_invaders" value="${project.jdk.home}"/>
+    <property name="module.jdk.bin.bootcamp_space_invaders" value="${project.jdk.bin}"/>
+    <property name="module.jdk.classpath.bootcamp_space_invaders" value="${project.jdk.classpath}"/>
+
+    <property name="compiler.args.bootcamp_space_invaders"
+              value="-encoding UTF-8 -source 9 -target 9 ${compiler.args}"/>
+
+    <property name="bootcamp_space_invaders.output.dir"
+              value="${module.bootcamp_space_invaders.basedir}/out/production/Bootcamp_Space_Invaders"/>
+    <property name="bootcamp_space_invaders.testoutput.dir"
+              value="${module.bootcamp_space_invaders.basedir}/out/test/Bootcamp_Space_Invaders"/>
+
+    <path id="bootcamp_space_invaders.module.bootclasspath">
+        <!-- Paths to be included in compilation bootclasspath -->
+    </path>
+
+    <path id="bootcamp_space_invaders.module.production.classpath">
+        <path refid="${module.jdk.classpath.bootcamp_space_invaders}"/>
+        <path refid="library.simplegraphics.classpath"/>
+    </path>
+
+    <path id="bootcamp_space_invaders.runtime.production.module.classpath">
+        <pathelement location="${bootcamp_space_invaders.output.dir}"/>
+        <path refid="library.simplegraphics.classpath"/>
+    </path>
+
+    <path id="bootcamp_space_invaders.module.classpath">
+        <path refid="${module.jdk.classpath.bootcamp_space_invaders}"/>
+        <pathelement location="${bootcamp_space_invaders.output.dir}"/>
+        <path refid="library.simplegraphics.classpath"/>
+    </path>
+
+    <path id="bootcamp_space_invaders.runtime.module.classpath">
+        <pathelement location="${bootcamp_space_invaders.testoutput.dir}"/>
+        <pathelement location="${bootcamp_space_invaders.output.dir}"/>
+        <path refid="library.simplegraphics.classpath"/>
+    </path>
+
+
+    <patternset id="excluded.from.module.bootcamp_space_invaders">
+        <patternset refid="ignored.files"/>
+    </patternset>
+
+    <patternset id="excluded.from.compilation.bootcamp_space_invaders">
+        <patternset refid="excluded.from.module.bootcamp_space_invaders"/>
+    </patternset>
+
+    <path id="bootcamp_space_invaders.module.sourcepath">
+        <dirset dir="${module.bootcamp_space_invaders.basedir}">
+            <include name="src"/>
+            <include name="resources"/>
+        </dirset>
+    </path>
+
+
+    <target name="compile.module.bootcamp_space_invaders"
+            depends="compile.module.bootcamp_space_invaders.production,compile.module.bootcamp_space_invaders.tests"
+            description="Compile module Bootcamp_Space_Invaders"/>
+
+    <target name="compile.module.bootcamp_space_invaders.production" depends="register.custom.compilers"
+            description="Compile module Bootcamp_Space_Invaders; production classes">
+        <mkdir dir="${bootcamp_space_invaders.output.dir}"/>
+        <javac2 destdir="${bootcamp_space_invaders.output.dir}" debug="${compiler.debug}"
+                nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true"
+                executable="${module.jdk.bin.bootcamp_space_invaders}/javac">
+            <compilerarg line="${compiler.args.bootcamp_space_invaders}"/>
+            <bootclasspath refid="bootcamp_space_invaders.module.bootclasspath"/>
+            <classpath refid="bootcamp_space_invaders.module.production.classpath"/>
+            <src refid="bootcamp_space_invaders.module.sourcepath"/>
+            <patternset refid="excluded.from.compilation.bootcamp_space_invaders"/>
+        </javac2>
+
+        <copy todir="${bootcamp_space_invaders.output.dir}">
+            <fileset dir="${module.bootcamp_space_invaders.basedir}/src">
+                <patternset refid="compiler.resources"/>
+                <type type="file"/>
+            </fileset>
+            <fileset dir="${module.bootcamp_space_invaders.basedir}/resources">
+                <patternset refid="compiler.resources"/>
+                <type type="file"/>
+            </fileset>
+        </copy>
+    </target>
+
+    <target name="compile.module.bootcamp_space_invaders.tests"
+            depends="register.custom.compilers,compile.module.bootcamp_space_invaders.production"
+            description="compile module Bootcamp_Space_Invaders; test classes" unless="skip.tests"/>
+
+    <target name="clean.module.bootcamp_space_invaders" description="cleanup module">
+        <delete dir="${bootcamp_space_invaders.output.dir}"/>
+        <delete dir="${bootcamp_space_invaders.testoutput.dir}"/>
+    </target>
+
+    <target name="init" description="Build initialization">
+        <!-- Perform any build initialization in this target -->
+    </target>
+
+    <target name="clean" depends="clean.module.bootcamp_space_invaders" description="cleanup all"/>
+
+    <target name="build.modules" depends="init, clean, compile.module.bootcamp_space_invaders"
+            description="build all modules"/>
+
+    <target name="all" depends="build.modules" description="build all"/>
+</project>

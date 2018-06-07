@@ -10,15 +10,11 @@ public class MenuEvent {
     private Picture credits;
     private Sound menu;
 
-
     public MenuEvent() {
-
         this.mainMenu = new Picture(0, 0, "resources/images/menu/main_menu.png");
         this.tutorial = new Picture(0,0, "resources/images/menu/tutorial.png");
         this.credits = new Picture(0,0, "resources/images/menu/credits.png");
     }
-
-
 
     public void killSoundMenu(){ menu.stop(); }
 
@@ -43,8 +39,6 @@ public class MenuEvent {
     public void removeMenu(){
         mainMenu.delete();
     }
-
-
 }
 
 

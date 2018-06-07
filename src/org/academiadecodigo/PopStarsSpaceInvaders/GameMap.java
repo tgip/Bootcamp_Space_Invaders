@@ -4,11 +4,9 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class GameMap {
 
-    public static final int PADDING = 10;
-
-    public static final int WIDTH = 960;
-    public static final int HEIGHT = 540;
-
+    private static final int PADDING = 10;
+    private static final int WIDTH = 960;
+    private static final int HEIGHT = 540;
     private Picture screen;
     private Picture start;
     private Picture exit;
@@ -39,5 +37,4 @@ public class GameMap {
         return 0 <= x && x <= GameMap.WIDTH - width
                 && 0 <= y && y <= GameMap.HEIGHT - height;
     }
-
 }

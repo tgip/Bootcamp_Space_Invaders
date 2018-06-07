@@ -1,13 +1,6 @@
 package org.academiadecodigo.PopStarsSpaceInvaders;
 
-import org.academiadecodigo.PopStarsSpaceInvaders.gameobjects.GetRndBadGuyImg;
-import org.academiadecodigo.PopStarsSpaceInvaders.gameobjects.Player;
-import org.academiadecodigo.PopStarsSpaceInvaders.gameobjects.Drawable;
 import org.academiadecodigo.PopStarsSpaceInvaders.gameobjects.GameObject;
-import org.academiadecodigo.PopStarsSpaceInvaders.gameobjects.badguys.GenericBadGuy;
-import org.academiadecodigo.simplegraphics.graphics.Color;
-import org.academiadecodigo.simplegraphics.graphics.Movable;
-import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 
 public class Shot extends GameObject {
 
@@ -51,11 +44,9 @@ public class Shot extends GameObject {
         }
     }
 
-    public double getPosX(
-    ) {
+    public double getPosX() {
         return posX;
     }
-
 
     @Override
     public void destroy(GameObject target) {
@@ -63,12 +54,9 @@ public class Shot extends GameObject {
         target.hide();
     }
 
-    ;
-
     @Override
     public boolean isDestroyed() {
         return isDead;
-
     }
 
     @Override
@@ -84,7 +72,7 @@ public class Shot extends GameObject {
         this.posX = posX;
     }
 
-    public void setPosY(double posY) {
+    private void setPosY(double posY) {
         this.posY = posY;
     }
 
@@ -95,5 +83,4 @@ public class Shot extends GameObject {
     public void setDirection(Direction direction) {
         this.direction = Direction.UP;
     }
-
 }

@@ -1,18 +1,15 @@
 package org.academiadecodigo.PopStarsSpaceInvaders;
 
-import org.academiadecodigo.PopStarsSpaceInvaders.menu.MenunChoice;
-
-import javax.swing.*;
-import java.awt.*;
+import org.academiadecodigo.PopStarsSpaceInvaders.menu.MenuChoice;
 
 public class Launcher {
-  public static void main(String[] args) throws InterruptedException {
-    Game game = new Game();
-    MenunChoice menunChoice=new MenunChoice();
+    public static void main(String[] args) throws InterruptedException {
+        Game game = new Game();
+        MenuChoice menuChoice = new MenuChoice();
 
-    menunChoice.init();
-    menunChoice.start();
-    game.init();
-    game.start();
-  }
+        menuChoice.init();
+        menuChoice.start();
+        game.init();
+        game.start();
+    }
 }

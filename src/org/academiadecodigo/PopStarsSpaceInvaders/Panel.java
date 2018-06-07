@@ -4,7 +4,7 @@ import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 import org.academiadecodigo.simplegraphics.graphics.Text;
 
-public class Painel {
+public class Panel {
 
     private Rectangle rectangle;
     private Text scoreText;
@@ -12,7 +12,7 @@ public class Painel {
     private Text levelText;
     private Text levelValue;
 
-    public Painel() {
+    public Panel() {
         rectangle = new Rectangle(Config.PADDING, Config.PADDING, 200, 50);
         rectangle.setColor(Color.MAGENTA);
         rectangle.draw();
