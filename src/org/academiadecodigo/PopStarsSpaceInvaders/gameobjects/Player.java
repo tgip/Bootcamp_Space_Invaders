@@ -2,67 +2,52 @@ package org.academiadecodigo.PopStarsSpaceInvaders.gameobjects;
 
 import org.academiadecodigo.PopStarsSpaceInvaders.*;
 import org.academiadecodigo.simplegraphics.mouse.MouseEvent;
-import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 import java.util.LinkedList;
 import java.util.List;
 
-public class Player extends GameObject implements MouseUser{
+public class Player extends GameObject implements MouseUser {
 
+    public static final Sound sound = new Sound("/resources/sounds/FudiMe.wav");
+    public List<Shot> list = new LinkedList<Shot>();
     private boolean dead;
-    //  private int directionChangeLevel = 8;
     private int health;
     private Direction direction;
     private double posX;
     private double posY;
-    public List<Shot> list = new LinkedList<Shot>();
     private CollisionDetector collisionDetector;
-    public static final Sound sound = new Sound("/resources/sounds/FudiMe.wav");
     private int level;
-
-
-
     private int playerLevel;
     private double gun_pos = 25;
-
 
     public Player() {
         super(0, Config.BOARD_HEIGHT - Config.playerIcon_HEIGHT, GetRndPlayerImg.get());
         posX = 0;
         posY = Config.BOARD_HEIGHT - Config.playerIcon_HEIGHT;
         picture.draw();
-
     }
-
 
     @Override
     public void destroy(GameObject target) {
-
     }
-
 
     @Override
     public boolean isDestroyed() {
         picture.delete();
         return dead;
-
-
     }
-
 
     @Override
     public void hit() {
         sound.play(true);
         dead = true;
         picture.delete();
-
     }
 
     public void move(double x, double y) {
         picture.translate(x - posX, y - posY);
         posX = x;
         posY = y;
-
     }
 
     public void shoot() {
@@ -100,13 +85,12 @@ public class Player extends GameObject implements MouseUser{
         this.dead = b;
     }
 
-    public void setLevel(int a){
+    public void setLevel(int a) {
         if (a == 1) {
-            level=0;
+            level = 0;
         }
-        this.level+=a;
+        this.level += a;
     }
-
 
     @Override
     public void mouseClicked(MouseEvent e) {

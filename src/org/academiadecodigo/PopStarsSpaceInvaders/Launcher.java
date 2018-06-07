@@ -1,14 +1,13 @@
 package org.academiadecodigo.PopStarsSpaceInvaders;
 
-import org.academiadecodigo.PopStarsSpaceInvaders.menu.MenuChoice;
+import org.academiadecodigo.PopStarsSpaceInvaders.menu.MenunChoice;
 
 public class Launcher {
     public static void main(String[] args) throws InterruptedException {
         Game game = new Game();
-        MenuChoice menuChoice = new MenuChoice();
-
-        menuChoice.init();
-        menuChoice.start();
+        MenunChoice menunChoice = new MenunChoice();
+        menunChoice.init();
+        menunChoice.start();
         game.init();
         game.start();
     }

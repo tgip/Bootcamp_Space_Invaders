@@ -3,10 +3,9 @@ package org.academiadecodigo.PopStarsSpaceInvaders;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class GameMap {
-
-    private static final int PADDING = 10;
-    private static final int WIDTH = 960;
-    private static final int HEIGHT = 540;
+    public static final int PADDING = 10;
+    public static final int WIDTH = 960;
+    public static final int HEIGHT = 540;
     private Picture screen;
     private Picture start;
     private Picture exit;

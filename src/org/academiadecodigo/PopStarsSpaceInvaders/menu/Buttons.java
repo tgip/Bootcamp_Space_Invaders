@@ -7,7 +7,7 @@ public class Buttons {
     private int endX;
     private int endY;
 
-    public Buttons(int startX, int startY, int endX, int endY){
+    public Buttons(int startX, int startY, int endX, int endY) {
         this.startX = startX;
         this.startY = startY;
         this.endX = endX;

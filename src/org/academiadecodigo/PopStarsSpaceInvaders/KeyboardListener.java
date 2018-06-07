@@ -13,13 +13,11 @@ public class KeyboardListener implements KeyboardHandler {
             KeyboardEvent.KEY_LEFT,
             KeyboardEvent.KEY_RIGHT
     };
-
     private Player player;
     private boolean active;
 
     public KeyboardListener(Player player) {
         this.player = player;
-
         Keyboard keyboard = new Keyboard(this);
 
         for (int key : keys) {
@@ -32,6 +30,7 @@ public class KeyboardListener implements KeyboardHandler {
 
     @Override
     public void keyPressed(KeyboardEvent e) {
+
         if (active) {
             return;
         }
@@ -44,6 +43,10 @@ public class KeyboardListener implements KeyboardHandler {
     }
 
     @Override
-    public void keyReleased(KeyboardEvent e) { // We're not listening for keyReleased }
+    public void keyReleased(KeyboardEvent e) {
+    }
+
+    public void activate() {
+        this.active = true;
     }
 }

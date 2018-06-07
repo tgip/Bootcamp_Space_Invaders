@@ -2,28 +2,28 @@ package org.academiadecodigo.PopStarsSpaceInvaders;
 
 public interface Config {
 
-  public static final int PADDING = 10;
-  public static final int BOARD_WIDTH = 1480;
-  public static final int BOARD_HEIGHT = 832;
-  public static final int BORDER_RIGHT = 30;
-  public static final int BORDER_LEFT = 5;
+    int PADDING = 10;
+    int BOARD_WIDTH = 1480;
+    int BOARD_HEIGHT = 832;
+    int BORDER_RIGHT = 30;
+    int BORDER_LEFT = 5;
 
-  public static final int playerIcon_WIDTH = 100;
-  public static final int playerIcon_HEIGHT = 100;
+    int playerIcon_WIDTH = 100;
+    int playerIcon_HEIGHT = 100;
 
-  public static final int FRAME_HEIGHT = 10;
-  public static final int FRAME_WIDTH = 10;
-  public static final int CURSOR_HEIGHT = 5;
-  public static final int CURSOR_WIDTH = 5;
+    int FRAME_HEIGHT = 10;
+    int FRAME_WIDTH = 10;
+    int CURSOR_HEIGHT = 5;
+    int CURSOR_WIDTH = 5;
 
-  public static final int GROUND = 290;
+    int GROUND = 290;
 
-  public static final int BOMB_HEIGHT = 5;
-  public static final int BADGUYGENERiIC_HEIGHT = 12;
-  public static final int ALIEN_WIDTH = 12;
+    int BOMB_HEIGHT = 5;
+    int BADGUYGENERiIC_HEIGHT = 12;
+    int ALIEN_WIDTH = 12;
 
-  public static final int NUMBER_OF_ALIENS_TO_DESTROY = 10;
+    int NUMBER_OF_ALIENS_TO_DESTROY = 10;
 
-  public static final int PLAYER_START_HEALTH = 20;
+    int PLAYER_START_HEALTH = 20;
 
 }
