@@ -6,15 +6,15 @@ The MC's throw potatoes relentlessly at the popStars in a vain attempt to keep t
 
 As they get smarter, the popStars will eventually overrun the MC's ... How long can you keep the popStars at bay?
 
-##Project for <Academia de Código_> bootcamp - Terceira TechIsland 2018
+<br/>Project for <Academia de Código_> bootcamp - Terceira TechIsland 2018
 
-###Authors:
-*Adriano Soares
-*Barbara M Ormonde
-*Humberto Sousa
-*Pedro Furtado
+<p>Authors:
+<br/>*Adriano Soares
+<br/>*Barbara M Ormonde
+<br/>*Humberto Sousa
+<br/>*Pedro Furtado
 
-###MC's:
-*Pedro Antoninho
-*Francisco Machado
-*Rodrigo Duarte
+<p>AC - MC's:
+<br/>Pedro Antoninho
+<br/>Francisco Machado
+<br/>Rodrigo Duarte
