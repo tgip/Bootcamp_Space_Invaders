@@ -3,13 +3,9 @@ package org.academiadecodigo.PopStarsSpaceInvaders.gameobjects;
 import org.academiadecodigo.PopStarsSpaceInvaders.*;
 import org.academiadecodigo.simplegraphics.mouse.MouseEvent;
 
-import java.util.LinkedList;
-import java.util.List;
-
 public class Player extends GameObject implements MouseUser {
 
     public static final Sound sound = new Sound("/resources/sounds/FudiMe.wav");
-    public List<Shot> list = new LinkedList<Shot>();
     private boolean dead;
     private int health;
     private Direction direction;
@@ -17,6 +13,11 @@ public class Player extends GameObject implements MouseUser {
     private double posY;
     private CollisionDetector collisionDetector;
     private int level;
+
+    public int getPlayerLevel() {
+        return playerLevel;
+    }
+
     private int playerLevel;
     private double gun_pos = 25;
 
@@ -53,19 +54,11 @@ public class Player extends GameObject implements MouseUser {
     public void shoot() {
         Shot shot = new Shot(picture.getX() + gun_pos, picture.getY());
         shot.setLevelt(level);
-        list.add(shot);
         collisionDetector.addShot(shot);
     }
 
     public void setDirection(Direction direction) {
         this.direction = direction;
-    }
-
-    public void reset() {
-        for (Shot shot : list) {
-            shot.hide();
-        }
-        list.clear();
     }
 
     @Override

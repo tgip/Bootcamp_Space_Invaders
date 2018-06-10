@@ -1,12 +1,9 @@
 package org.academiadecodigo.PopStarsSpaceInvaders.gameobjects.badguys;
 
 import org.academiadecodigo.PopStarsSpaceInvaders.Config;
-import org.academiadecodigo.PopStarsSpaceInvaders.Direction;
-import org.academiadecodigo.PopStarsSpaceInvaders.Shot;
+import org.academiadecodigo.PopStarsSpaceInvaders.gameobjects.Shot;
 import org.academiadecodigo.PopStarsSpaceInvaders.Sound;
 import org.academiadecodigo.PopStarsSpaceInvaders.gameobjects.GameObject;
-import org.academiadecodigo.PopStarsSpaceInvaders.gameobjects.GetRndBadGuyImg;
-import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class Boss extends GenericBadGuy  {
 

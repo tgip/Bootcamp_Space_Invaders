@@ -27,7 +27,7 @@ public class Game {
         painel = new Painel();
         player = new Player();
         MouseListener mouseListener = new MouseListener(player);
-        KeyboardListener missilLaucher= new KeyboardListener(player);
+        KeyboardListener missilLaucher = new KeyboardListener(player);
         generateBadGuys();
         collisionDetector = new CollisionDetector(player, badGuys);
         player.setCollisionDetector(collisionDetector);
@@ -37,9 +37,7 @@ public class Game {
         while (true) {
             Thread.sleep(100);
             moveEnemy();
-            for (Shot i : player.list) {
-                i.move();
-            }
+            collisionDetector.moveShots();
 
             painel.addPoint(collisionDetector.getPoints());
             collisionDetector.collide();
@@ -73,25 +71,26 @@ public class Game {
             }
         }
     }
+
     private void generateBadGuys() {
         int x = 10;
         Double RNGGenerator;
         for (int i = 0; i < badGuys.length; i++) {
-            RNGGenerator=(Math.random());
+            RNGGenerator = (Math.random());
             x = x + 120;
             if (level < 3) {
-                badGuys[i] = ((Math.random() < 0.5) ? new BadGuy03(x, 10,1,0) : new BadGuy03(x, 10,1,50));
+                badGuys[i] = ((Math.random() < 0.5) ? new BadGuy03(x, 10, 1, 0) : new BadGuy03(x, 10, 1, 50));
                 badGuys[i].setLevelUp(level);
             } else {
-                if(RNGGenerator<0.4){
-                    badGuys[i] =new BadGuy03(x, 10,1,0);
+                if (RNGGenerator < 0.4) {
+                    badGuys[i] = new BadGuy03(x, 10, 1, 0);
                     badGuys[i].setLevelUp(level);
-                }else if(RNGGenerator>0.4&&RNGGenerator<0.8){
-                    badGuys[i] =new BadGuy03(x, 10,1,50);
+                } else if (RNGGenerator > 0.4 && RNGGenerator < 0.8) {
+                    badGuys[i] = new BadGuy03(x, 10, 1, 50);
                     badGuys[i].setLevelUp(level);
-                }else{
-                    badGuys[i]=new BadGuy03(x, 10,3,50);
-                    if(level<=5){
+                } else {
+                    badGuys[i] = new BadGuy03(x, 10, 3, 50);
+                    if (level <= 5) {
                         badGuys[i].setLevelUp(level);
                     }
                 }
@@ -107,7 +106,6 @@ public class Game {
 
     public void newGame() {
         generateBadGuys();
-        player.reset();
-        collisionDetector.reset(badGuys);
+        collisionDetector.resetBadguys(badGuys);
     }
 }

@@ -2,6 +2,7 @@ package org.academiadecodigo.PopStarsSpaceInvaders;
 
 import org.academiadecodigo.PopStarsSpaceInvaders.gameobjects.ImageStar;
 import org.academiadecodigo.PopStarsSpaceInvaders.gameobjects.Player;
+import org.academiadecodigo.PopStarsSpaceInvaders.gameobjects.Shot;
 import org.academiadecodigo.PopStarsSpaceInvaders.gameobjects.badguys.GenericBadGuy;
 
 import java.util.LinkedList;
@@ -9,11 +10,11 @@ import java.util.List;
 
 public class CollisionDetector {
     private Player player;
-    private GenericBadGuy[] badGuys;
-    private List<Shot> shots;
-    private ImageStar starImage;
-    private LinkedList<ImageStar> arrayStars = new LinkedList<>();
     private int points;
+    private ImageStar starImage;
+    private GenericBadGuy[] badGuys;
+    public List<Shot> shots = new LinkedList<>();
+    private LinkedList<ImageStar> arrayStars = new LinkedList<>();
 
     public CollisionDetector(Player player, GenericBadGuy[] badGuys) {
         this.player = player;
@@ -23,8 +24,14 @@ public class CollisionDetector {
 
     public void addShot(Shot shot) {
         synchronized (shots) {
-            shots.add(shot);
+            if (shots.size() < (player.getPlayerLevel() * 20)) {
+                shots.add(shot);
+            }
         }
+    }
+
+    public void removeShot(Shot shot) {
+        shots.remove(shot);
     }
 
     public void collide() {
@@ -48,12 +55,15 @@ public class CollisionDetector {
                         addStar(aStar);
                         break;
                     }
+                    if (shot.getPosY() < 5) {
+                        shots.remove(shot);
+                    }
                 }
             }
         }
     }
 
-    public void reset(GenericBadGuy[] badGuys) {
+    public void resetBadguys(GenericBadGuy[] badGuys) {
         this.badGuys = badGuys;
         synchronized (shots) {
             shots.clear();
@@ -65,6 +75,12 @@ public class CollisionDetector {
             if (eachStar != null) {
                 eachStar.move();
             }
+        }
+    }
+
+    public void moveShots() {
+        for (Shot shot : shots) {
+            shot.move();
         }
     }
 

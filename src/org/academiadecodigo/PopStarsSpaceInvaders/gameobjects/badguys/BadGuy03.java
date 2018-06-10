@@ -1,7 +1,7 @@
 package org.academiadecodigo.PopStarsSpaceInvaders.gameobjects.badguys;
 
 import org.academiadecodigo.PopStarsSpaceInvaders.Config;
-import org.academiadecodigo.PopStarsSpaceInvaders.Shot;
+import org.academiadecodigo.PopStarsSpaceInvaders.gameobjects.Shot;
 import org.academiadecodigo.PopStarsSpaceInvaders.Sound;
 import org.academiadecodigo.PopStarsSpaceInvaders.gameobjects.GameObject;
 
