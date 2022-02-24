@@ -17,4 +17,4 @@ As they get smarter, the popStars will eventually overrun the MC's ... How long 
 <p>AC - MC's:
 <br/>Pedro Antoninho
 <br/>Francisco Machado
-<br/>Rodrigo Duarte
+<br/>Rodrigo Duarte (RIP) ={¨}
